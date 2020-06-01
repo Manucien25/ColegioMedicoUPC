@@ -1,0 +1,12 @@
+D:\.NET Projects\CMP_WCF\CMP_WCF\bin\Debug\CMP_WCF.dll.config
+D:\.NET Projects\CMP_WCF\CMP_WCF\bin\Debug\CMP_WCF.dll
+D:\.NET Projects\CMP_WCF\CMP_WCF\bin\Debug\CMP_WCF.pdb
+D:\.NET Projects\CMP_WCF\CMP_WCF\bin\Debug\CMP.DAL.dll
+D:\.NET Projects\CMP_WCF\CMP_WCF\bin\Debug\EntityFramework.dll
+D:\.NET Projects\CMP_WCF\CMP_WCF\bin\Debug\CMP.DAL.pdb
+D:\.NET Projects\CMP_WCF\CMP_WCF\bin\Debug\EntityFramework.xml
+D:\.NET Projects\CMP_WCF\CMP_WCF\obj\Debug\CMP_WCF.csprojResolveAssemblyReference.cache
+D:\.NET Projects\CMP_WCF\CMP_WCF\obj\Debug\CMP_WCF.dll
+D:\.NET Projects\CMP_WCF\CMP_WCF\obj\Debug\CMP_WCF.pdb
+D:\.NET Projects\CMP_WCF\CMP_WCF\bin\Debug\EntityFramework.SqlServer.dll
+D:\.NET Projects\CMP_WCF\CMP_WCF\bin\Debug\EntityFramework.SqlServer.xml

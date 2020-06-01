@@ -1,0 +1,10 @@
+D:\.NET Projects\CMP_WCF\CMP.DAL\bin\Debug\CMP.DAL.dll.config
+D:\.NET Projects\CMP_WCF\CMP.DAL\bin\Debug\CMP.DAL.dll
+D:\.NET Projects\CMP_WCF\CMP.DAL\bin\Debug\CMP.DAL.pdb
+D:\.NET Projects\CMP_WCF\CMP.DAL\bin\Debug\EntityFramework.dll
+D:\.NET Projects\CMP_WCF\CMP.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\.NET Projects\CMP_WCF\CMP.DAL\bin\Debug\EntityFramework.xml
+D:\.NET Projects\CMP_WCF\CMP.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\.NET Projects\CMP_WCF\CMP.DAL\obj\Debug\CMP.DAL.dll
+D:\.NET Projects\CMP_WCF\CMP.DAL\obj\Debug\CMP.DAL.pdb
+D:\.NET Projects\CMP_WCF\CMP.DAL\obj\Debug\CMP.DAL.csprojResolveAssemblyReference.cache

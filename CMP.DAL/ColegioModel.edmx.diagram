@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5aa9f9f1036b4f0382d7097ec4b16d26" Name="Diagram1">
+        <EntityTypeShape EntityType="ColegioModel.CER_PASANTIA" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColegioModel.CER_POSTGRADO" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColegioModel.CMP_CREGIONAL" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColegioModel.CMP_ESPECIALIDAD" Width="1.5" PointX="9" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColegioModel.CMP_INSTITUCIONEDU" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColegioModel.CMP_MEDICO" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColegioModel.CMP_MEDICOESP" Width="1.5" PointX="11.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColegioModel.CMP_PRESTADORA" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColegioModel.CMP_UBIGEO" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="ColegioModel.FK_CER_PASANTIA_CMP_MEDICO" ManuallyRouted="false" />
+        <AssociationConnector Association="ColegioModel.FK_CER_PASANTIA_CMP_PRESTADORA" ManuallyRouted="false" />
+        <AssociationConnector Association="ColegioModel.FK_CER_POSTGRADO_CMP_INSTITUCIONEDU" ManuallyRouted="false" />
+        <AssociationConnector Association="ColegioModel.FK_CER_POSTGRADO_CMP_MEDICO" ManuallyRouted="false" />
+        <AssociationConnector Association="ColegioModel.FK_CMP_MEDICO_CMP_CREGIONAL" ManuallyRouted="false" />
+        <AssociationConnector Association="ColegioModel.FK_CMP_MEDICOESP_CMP_ESPECIALIDAD" ManuallyRouted="false" />
+        <AssociationConnector Association="ColegioModel.FK_CMP_MEDICO_CMP_INSTITUCIONEDU" ManuallyRouted="false" />
+        <AssociationConnector Association="ColegioModel.FK_CMP_MEDICO_CMP_UBIGEO" ManuallyRouted="false" />
+        <AssociationConnector Association="ColegioModel.FK_CMP_MEDICOESP_CMP_MEDICO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

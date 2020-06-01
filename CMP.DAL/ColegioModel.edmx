@@ -1,0 +1,1939 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ColegioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CER_PASANTIA">
+          <Key>
+            <PropertyRef Name="npasantia_id" />
+          </Key>
+          <Property Name="npasantia_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vpasantia_dsc" Type="varchar" MaxLength="150" />
+          <Property Name="dpasantia_inicio" Type="date" />
+          <Property Name="dpasantia_fin" Type="date" />
+          <Property Name="npresatadora_id" Type="int" />
+          <Property Name="cmedico_id" Type="int" />
+        </EntityType>
+        <EntityType Name="CER_POSTGRADO">
+          <Key>
+            <PropertyRef Name="npostgrado_id" />
+          </Key>
+          <Property Name="npostgrado_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dpostgrado_fecha" Type="date" />
+          <Property Name="vpostgrado_nombre" Type="varchar" MaxLength="150" />
+          <Property Name="ninstitucionedu_id" Type="int" />
+          <Property Name="cmedico_id" Type="int" />
+          <Property Name="cpostgrado_tipo" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="CMP_CREGIONAL">
+          <Key>
+            <PropertyRef Name="ncregional_id" />
+          </Key>
+          <Property Name="ncregional_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vcregional_cod" Type="varchar" MaxLength="20" />
+          <Property Name="vcregional_nombre" Type="varchar" MaxLength="100" />
+          <Property Name="vcregional_abr" Type="varchar" MaxLength="20" />
+          <Property Name="vcregional_estado" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="CMP_ESPECIALIDAD">
+          <Key>
+            <PropertyRef Name="nespecialidad_id" />
+          </Key>
+          <Property Name="nespecialidad_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cespecialidad_estado" Type="char" MaxLength="1" />
+          <Property Name="cespecialidad_nombre" Type="varchar" MaxLength="100" />
+          <Property Name="vespecialidad_cod" Type="varchar" MaxLength="20" />
+          <Property Name="vespecialidad_tipo" Type="varchar" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="CMP_INSTITUCIONEDU">
+          <Key>
+            <PropertyRef Name="ninstitucionedu_id" />
+          </Key>
+          <Property Name="ninstitucionedu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cinstitucionedu_nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cinstitucionedu_tipo" Type="char" MaxLength="1" />
+          <Property Name="cinstitucionedu_estado" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="CMP_MEDICO">
+          <Key>
+            <PropertyRef Name="cmedico_id" />
+          </Key>
+          <Property Name="cmedico_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmedico_nrodoc" Type="varchar" MaxLength="20" />
+          <Property Name="cmedico_ncolegiatura" Type="varchar" MaxLength="12" />
+          <Property Name="vmedico_a_paterno" Type="varchar" MaxLength="50" />
+          <Property Name="vmedico_a_materno" Type="varchar" MaxLength="50" />
+          <Property Name="vmedico_nombres" Type="varchar" MaxLength="50" />
+          <Property Name="cmedico_estado" Type="char" MaxLength="4" />
+          <Property Name="vmedico_titulo" Type="varchar" MaxLength="100" />
+          <Property Name="vmedico_titulo_nro" Type="varchar" MaxLength="20" />
+          <Property Name="vmedico_correo" Type="varchar" MaxLength="150" />
+          <Property Name="vmedico_telefono" Type="varchar" MaxLength="50" />
+          <Property Name="vmedico_direccion" Type="varchar" MaxLength="200" />
+          <Property Name="ncregional_id" Type="int" />
+          <Property Name="cmedico_sexo" Type="char" MaxLength="1" />
+          <Property Name="cmedico_tipodoc" Type="varchar" MaxLength="2" />
+          <Property Name="vmedico_celular" Type="varchar" MaxLength="50" />
+          <Property Name="dmedico_colegiatura" Type="date" />
+          <Property Name="ninstitucionedu_id" Type="int" />
+          <Property Name="dmedico_nacimiento" Type="date" />
+          <Property Name="cmedico_recertificado" Type="char" MaxLength="1" />
+          <Property Name="cubigeo_cod" Type="char" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="CMP_MEDICOESP">
+          <Key>
+            <PropertyRef Name="CMEDICOESP_ID" />
+          </Key>
+          <Property Name="CMEDICOESP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VMEDICOESP_COD" Type="varchar" MaxLength="10" />
+          <Property Name="CMEDICO_ID" Type="int" />
+          <Property Name="NESPECIALIDAD_ID" Type="int" />
+          <Property Name="DMEDICOESP_EMISION" Type="date" />
+          <Property Name="DMEDICOESP_CADUCIDAD" Type="date" />
+          <Property Name="DMEDICOESP_RESOLUCION" Type="date" />
+        </EntityType>
+        <EntityType Name="CMP_PRESTADORA">
+          <Key>
+            <PropertyRef Name="nprestadora_id" />
+          </Key>
+          <Property Name="nprestadora_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vprestadora_nom" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="CMP_UBIGEO">
+          <Key>
+            <PropertyRef Name="CUBIGEO_COD" />
+          </Key>
+          <Property Name="CUBIGEO_COD" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="VUBIGEO_DEPARTAMENTO" Type="varchar" MaxLength="255" />
+          <Property Name="VUBIGEO_PROVINCIA" Type="varchar" MaxLength="255" />
+          <Property Name="VUBIGEO_DISTRITO" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_CER_PASANTIA_CMP_MEDICO">
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="0..1" />
+          <End Role="CER_PASANTIA" Type="Self.CER_PASANTIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_MEDICO">
+              <PropertyRef Name="cmedico_id" />
+            </Principal>
+            <Dependent Role="CER_PASANTIA">
+              <PropertyRef Name="cmedico_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CER_PASANTIA_CMP_PRESTADORA">
+          <End Role="CMP_PRESTADORA" Type="Self.CMP_PRESTADORA" Multiplicity="0..1" />
+          <End Role="CER_PASANTIA" Type="Self.CER_PASANTIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_PRESTADORA">
+              <PropertyRef Name="nprestadora_id" />
+            </Principal>
+            <Dependent Role="CER_PASANTIA">
+              <PropertyRef Name="npresatadora_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CER_POSTGRADO_CMP_INSTITUCIONEDU">
+          <End Role="CMP_INSTITUCIONEDU" Type="Self.CMP_INSTITUCIONEDU" Multiplicity="0..1" />
+          <End Role="CER_POSTGRADO" Type="Self.CER_POSTGRADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_INSTITUCIONEDU">
+              <PropertyRef Name="ninstitucionedu_id" />
+            </Principal>
+            <Dependent Role="CER_POSTGRADO">
+              <PropertyRef Name="ninstitucionedu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CER_POSTGRADO_CMP_MEDICO">
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="0..1" />
+          <End Role="CER_POSTGRADO" Type="Self.CER_POSTGRADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_MEDICO">
+              <PropertyRef Name="cmedico_id" />
+            </Principal>
+            <Dependent Role="CER_POSTGRADO">
+              <PropertyRef Name="cmedico_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_MEDICO_CMP_CREGIONAL">
+          <End Role="CMP_CREGIONAL" Type="Self.CMP_CREGIONAL" Multiplicity="0..1" />
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_CREGIONAL">
+              <PropertyRef Name="ncregional_id" />
+            </Principal>
+            <Dependent Role="CMP_MEDICO">
+              <PropertyRef Name="ncregional_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_MEDICO_CMP_INSTITUCIONEDU">
+          <End Role="CMP_INSTITUCIONEDU" Type="Self.CMP_INSTITUCIONEDU" Multiplicity="0..1" />
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_INSTITUCIONEDU">
+              <PropertyRef Name="ninstitucionedu_id" />
+            </Principal>
+            <Dependent Role="CMP_MEDICO">
+              <PropertyRef Name="ninstitucionedu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_MEDICO_CMP_UBIGEO">
+          <End Role="CMP_UBIGEO" Type="Self.CMP_UBIGEO" Multiplicity="0..1" />
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_UBIGEO">
+              <PropertyRef Name="CUBIGEO_COD" />
+            </Principal>
+            <Dependent Role="CMP_MEDICO">
+              <PropertyRef Name="cubigeo_cod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_MEDICOESP_CMP_ESPECIALIDAD">
+          <End Role="CMP_ESPECIALIDAD" Type="Self.CMP_ESPECIALIDAD" Multiplicity="0..1" />
+          <End Role="CMP_MEDICOESP" Type="Self.CMP_MEDICOESP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_ESPECIALIDAD">
+              <PropertyRef Name="nespecialidad_id" />
+            </Principal>
+            <Dependent Role="CMP_MEDICOESP">
+              <PropertyRef Name="NESPECIALIDAD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_MEDICOESP_CMP_MEDICO">
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CMP_MEDICOESP" Type="Self.CMP_MEDICOESP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_MEDICO">
+              <PropertyRef Name="cmedico_id" />
+            </Principal>
+            <Dependent Role="CMP_MEDICOESP">
+              <PropertyRef Name="CMEDICO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_CER_PASANTIADelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="npasantia_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CER_PASANTIAInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vpasantia_dsc" Type="varchar" Mode="In" />
+          <Parameter Name="dpasantia_inicio" Type="date" Mode="In" />
+          <Parameter Name="dpasantia_fin" Type="date" Mode="In" />
+          <Parameter Name="npresatadora_id" Type="int" Mode="In" />
+          <Parameter Name="cmedico_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CER_PASANTIASelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="npasantia_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CER_PASANTIAUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="npasantia_id" Type="int" Mode="In" />
+          <Parameter Name="vpasantia_dsc" Type="varchar" Mode="In" />
+          <Parameter Name="dpasantia_inicio" Type="date" Mode="In" />
+          <Parameter Name="dpasantia_fin" Type="date" Mode="In" />
+          <Parameter Name="npresatadora_id" Type="int" Mode="In" />
+          <Parameter Name="cmedico_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CER_POSTGRADODelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="npostgrado_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CER_POSTGRADOInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dpostgrado_fecha" Type="date" Mode="In" />
+          <Parameter Name="vpostgrado_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="ninstitucionedu_id" Type="int" Mode="In" />
+          <Parameter Name="cmedico_id" Type="int" Mode="In" />
+          <Parameter Name="cpostgrado_tipo" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_CER_POSTGRADOSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="npostgrado_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CER_POSTGRADOUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="npostgrado_id" Type="int" Mode="In" />
+          <Parameter Name="dpostgrado_fecha" Type="date" Mode="In" />
+          <Parameter Name="vpostgrado_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="ninstitucionedu_id" Type="int" Mode="In" />
+          <Parameter Name="cmedico_id" Type="int" Mode="In" />
+          <Parameter Name="cpostgrado_tipo" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_CREGIONALDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ncregional_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_CREGIONALInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcregional_cod" Type="varchar" Mode="In" />
+          <Parameter Name="vcregional_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="vcregional_abr" Type="varchar" Mode="In" />
+          <Parameter Name="vcregional_estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_CREGIONALSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ncregional_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_CREGIONALUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ncregional_id" Type="int" Mode="In" />
+          <Parameter Name="vcregional_cod" Type="varchar" Mode="In" />
+          <Parameter Name="vcregional_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="vcregional_abr" Type="varchar" Mode="In" />
+          <Parameter Name="vcregional_estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_ESPECIALIDADDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nespecialidad_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_ESPECIALIDADInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cespecialidad_estado" Type="char" Mode="In" />
+          <Parameter Name="cespecialidad_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="vespecialidad_cod" Type="varchar" Mode="In" />
+          <Parameter Name="vespecialidad_tipo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_ESPECIALIDADSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nespecialidad_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_ESPECIALIDADUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nespecialidad_id" Type="int" Mode="In" />
+          <Parameter Name="cespecialidad_estado" Type="char" Mode="In" />
+          <Parameter Name="cespecialidad_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="vespecialidad_cod" Type="varchar" Mode="In" />
+          <Parameter Name="vespecialidad_tipo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_INSTITUCIONEDUDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ninstitucionedu_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_INSTITUCIONEDUInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cinstitucionedu_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="cinstitucionedu_tipo" Type="char" Mode="In" />
+          <Parameter Name="cinstitucionedu_estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_INSTITUCIONEDUSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ninstitucionedu_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_INSTITUCIONEDUUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ninstitucionedu_id" Type="int" Mode="In" />
+          <Parameter Name="cinstitucionedu_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="cinstitucionedu_tipo" Type="char" Mode="In" />
+          <Parameter Name="cinstitucionedu_estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_MEDICODelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cmedico_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_MEDICOESPDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CMEDICOESP_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_MEDICOESPInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VMEDICOESP_COD" Type="varchar" Mode="In" />
+          <Parameter Name="CMEDICO_ID" Type="int" Mode="In" />
+          <Parameter Name="NESPECIALIDAD_ID" Type="int" Mode="In" />
+          <Parameter Name="NINSTITUCIONEDU_ID" Type="int" Mode="In" />
+          <Parameter Name="NCREGIONAL_ID" Type="int" Mode="In" />
+          <Parameter Name="DMEDICOESP_EMISION" Type="date" Mode="In" />
+          <Parameter Name="DMEDICOESP_CADUCIDAD" Type="date" Mode="In" />
+          <Parameter Name="DMEDICOESP_RESOLUCION" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_MEDICOESPSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CMEDICOESP_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_MEDICOESPUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CMEDICOESP_ID" Type="int" Mode="In" />
+          <Parameter Name="VMEDICOESP_COD" Type="varchar" Mode="In" />
+          <Parameter Name="CMEDICO_ID" Type="int" Mode="In" />
+          <Parameter Name="NESPECIALIDAD_ID" Type="int" Mode="In" />
+          <Parameter Name="NINSTITUCIONEDU_ID" Type="int" Mode="In" />
+          <Parameter Name="NCREGIONAL_ID" Type="int" Mode="In" />
+          <Parameter Name="DMEDICOESP_EMISION" Type="date" Mode="In" />
+          <Parameter Name="DMEDICOESP_CADUCIDAD" Type="date" Mode="In" />
+          <Parameter Name="DMEDICOESP_RESOLUCION" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_MEDICOInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cmedico_nrodoc" Type="varchar" Mode="In" />
+          <Parameter Name="cmedico_ncolegiatura" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_a_paterno" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_a_materno" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_nombres" Type="varchar" Mode="In" />
+          <Parameter Name="cmedico_estado" Type="char" Mode="In" />
+          <Parameter Name="vmedico_titulo" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_titulo_nro" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_correo" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_telefono" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_direccion" Type="varchar" Mode="In" />
+          <Parameter Name="ncregional_id" Type="int" Mode="In" />
+          <Parameter Name="cmedico_sexo" Type="char" Mode="In" />
+          <Parameter Name="cmedico_tipodoc" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_celular" Type="varchar" Mode="In" />
+          <Parameter Name="dmedico_colegiatura" Type="date" Mode="In" />
+          <Parameter Name="ninstitucionedu_id" Type="int" Mode="In" />
+          <Parameter Name="dmedico_nacimiento" Type="date" Mode="In" />
+          <Parameter Name="cmedico_recertificado" Type="char" Mode="In" />
+          <Parameter Name="cubigeo_cod" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_MEDICOSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cmedico_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_MEDICOUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cmedico_id" Type="int" Mode="In" />
+          <Parameter Name="cmedico_nrodoc" Type="varchar" Mode="In" />
+          <Parameter Name="cmedico_ncolegiatura" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_a_paterno" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_a_materno" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_nombres" Type="varchar" Mode="In" />
+          <Parameter Name="cmedico_estado" Type="char" Mode="In" />
+          <Parameter Name="vmedico_titulo" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_titulo_nro" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_correo" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_telefono" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_direccion" Type="varchar" Mode="In" />
+          <Parameter Name="ncregional_id" Type="int" Mode="In" />
+          <Parameter Name="cmedico_sexo" Type="char" Mode="In" />
+          <Parameter Name="cmedico_tipodoc" Type="varchar" Mode="In" />
+          <Parameter Name="vmedico_celular" Type="varchar" Mode="In" />
+          <Parameter Name="dmedico_colegiatura" Type="date" Mode="In" />
+          <Parameter Name="ninstitucionedu_id" Type="int" Mode="In" />
+          <Parameter Name="dmedico_nacimiento" Type="date" Mode="In" />
+          <Parameter Name="cmedico_recertificado" Type="char" Mode="In" />
+          <Parameter Name="cubigeo_cod" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_PRESTADORADelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nprestadora_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_PRESTADORAInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vprestadora_nom" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_PRESTADORASelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nprestadora_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_PRESTADORAUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nprestadora_id" Type="int" Mode="In" />
+          <Parameter Name="vprestadora_nom" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_UBIGEODelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CUBIGEO_COD" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_UBIGEOInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CUBIGEO_COD" Type="char" Mode="In" />
+          <Parameter Name="VUBIGEO_DEPARTAMENTO" Type="varchar" Mode="In" />
+          <Parameter Name="VUBIGEO_PROVINCIA" Type="varchar" Mode="In" />
+          <Parameter Name="VUBIGEO_DISTRITO" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_UBIGEOSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CUBIGEO_COD" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_CMP_UBIGEOUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CUBIGEO_COD" Type="char" Mode="In" />
+          <Parameter Name="VUBIGEO_DEPARTAMENTO" Type="varchar" Mode="In" />
+          <Parameter Name="VUBIGEO_PROVINCIA" Type="varchar" Mode="In" />
+          <Parameter Name="VUBIGEO_DISTRITO" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_Especialidad_By_MedicoID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_List_CRegional" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_List_Medicos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_List_MedicosInstEdu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_Medico_By_Id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Medico_By_NroCol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nro" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_Medico_By_Paterno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="paterno" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_Medicos_by_CRegionalID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Pasantia_By_MedicoID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Pasantia_By_PrestadoraID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="inicio" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_PostGrado_By_MedicoID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ColegioModelStoreContainer">
+          <EntitySet Name="CER_PASANTIA" EntityType="Self.CER_PASANTIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CER_POSTGRADO" EntityType="Self.CER_POSTGRADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_CREGIONAL" EntityType="Self.CMP_CREGIONAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_ESPECIALIDAD" EntityType="Self.CMP_ESPECIALIDAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_INSTITUCIONEDU" EntityType="Self.CMP_INSTITUCIONEDU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_MEDICO" EntityType="Self.CMP_MEDICO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_MEDICOESP" EntityType="Self.CMP_MEDICOESP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_PRESTADORA" EntityType="Self.CMP_PRESTADORA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_UBIGEO" EntityType="Self.CMP_UBIGEO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CER_PASANTIA_CMP_MEDICO" Association="Self.FK_CER_PASANTIA_CMP_MEDICO">
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+            <End Role="CER_PASANTIA" EntitySet="CER_PASANTIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CER_PASANTIA_CMP_PRESTADORA" Association="Self.FK_CER_PASANTIA_CMP_PRESTADORA">
+            <End Role="CMP_PRESTADORA" EntitySet="CMP_PRESTADORA" />
+            <End Role="CER_PASANTIA" EntitySet="CER_PASANTIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CER_POSTGRADO_CMP_INSTITUCIONEDU" Association="Self.FK_CER_POSTGRADO_CMP_INSTITUCIONEDU">
+            <End Role="CMP_INSTITUCIONEDU" EntitySet="CMP_INSTITUCIONEDU" />
+            <End Role="CER_POSTGRADO" EntitySet="CER_POSTGRADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CER_POSTGRADO_CMP_MEDICO" Association="Self.FK_CER_POSTGRADO_CMP_MEDICO">
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+            <End Role="CER_POSTGRADO" EntitySet="CER_POSTGRADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_MEDICO_CMP_CREGIONAL" Association="Self.FK_CMP_MEDICO_CMP_CREGIONAL">
+            <End Role="CMP_CREGIONAL" EntitySet="CMP_CREGIONAL" />
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_MEDICO_CMP_INSTITUCIONEDU" Association="Self.FK_CMP_MEDICO_CMP_INSTITUCIONEDU">
+            <End Role="CMP_INSTITUCIONEDU" EntitySet="CMP_INSTITUCIONEDU" />
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_MEDICO_CMP_UBIGEO" Association="Self.FK_CMP_MEDICO_CMP_UBIGEO">
+            <End Role="CMP_UBIGEO" EntitySet="CMP_UBIGEO" />
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_MEDICOESP_CMP_ESPECIALIDAD" Association="Self.FK_CMP_MEDICOESP_CMP_ESPECIALIDAD">
+            <End Role="CMP_ESPECIALIDAD" EntitySet="CMP_ESPECIALIDAD" />
+            <End Role="CMP_MEDICOESP" EntitySet="CMP_MEDICOESP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_MEDICOESP_CMP_MEDICO" Association="Self.FK_CMP_MEDICOESP_CMP_MEDICO">
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+            <End Role="CMP_MEDICOESP" EntitySet="CMP_MEDICOESP" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ColegioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CER_PASANTIA">
+          <Key>
+            <PropertyRef Name="npasantia_id" />
+          </Key>
+          <Property Name="npasantia_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vpasantia_dsc" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="dpasantia_inicio" Type="DateTime" Precision="0" />
+          <Property Name="dpasantia_fin" Type="DateTime" Precision="0" />
+          <Property Name="npresatadora_id" Type="Int32" />
+          <Property Name="cmedico_id" Type="Int32" />
+          <NavigationProperty Name="CMP_MEDICO" Relationship="Self.FK_CER_PASANTIA_CMP_MEDICO" FromRole="CER_PASANTIA" ToRole="CMP_MEDICO" />
+          <NavigationProperty Name="CMP_PRESTADORA" Relationship="Self.FK_CER_PASANTIA_CMP_PRESTADORA" FromRole="CER_PASANTIA" ToRole="CMP_PRESTADORA" />
+        </EntityType>
+        <EntityType Name="CER_POSTGRADO">
+          <Key>
+            <PropertyRef Name="npostgrado_id" />
+          </Key>
+          <Property Name="npostgrado_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dpostgrado_fecha" Type="DateTime" Precision="0" />
+          <Property Name="vpostgrado_nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ninstitucionedu_id" Type="Int32" />
+          <Property Name="cmedico_id" Type="Int32" />
+          <Property Name="cpostgrado_tipo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CMP_INSTITUCIONEDU" Relationship="Self.FK_CER_POSTGRADO_CMP_INSTITUCIONEDU" FromRole="CER_POSTGRADO" ToRole="CMP_INSTITUCIONEDU" />
+          <NavigationProperty Name="CMP_MEDICO" Relationship="Self.FK_CER_POSTGRADO_CMP_MEDICO" FromRole="CER_POSTGRADO" ToRole="CMP_MEDICO" />
+        </EntityType>
+        <EntityType Name="CMP_CREGIONAL">
+          <Key>
+            <PropertyRef Name="ncregional_id" />
+          </Key>
+          <Property Name="ncregional_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vcregional_cod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="vcregional_nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="vcregional_abr" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="vcregional_estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CMP_MEDICO" Relationship="Self.FK_CMP_MEDICO_CMP_CREGIONAL" FromRole="CMP_CREGIONAL" ToRole="CMP_MEDICO" />
+        </EntityType>
+        <EntityType Name="CMP_ESPECIALIDAD">
+          <Key>
+            <PropertyRef Name="nespecialidad_id" />
+          </Key>
+          <Property Name="nespecialidad_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cespecialidad_estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="cespecialidad_nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="vespecialidad_cod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="vespecialidad_tipo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CMP_MEDICOESP" Relationship="Self.FK_CMP_MEDICOESP_CMP_ESPECIALIDAD" FromRole="CMP_ESPECIALIDAD" ToRole="CMP_MEDICOESP" />
+        </EntityType>
+        <EntityType Name="CMP_INSTITUCIONEDU">
+          <Key>
+            <PropertyRef Name="ninstitucionedu_id" />
+          </Key>
+          <Property Name="ninstitucionedu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cinstitucionedu_nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cinstitucionedu_tipo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="cinstitucionedu_estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CER_POSTGRADO" Relationship="Self.FK_CER_POSTGRADO_CMP_INSTITUCIONEDU" FromRole="CMP_INSTITUCIONEDU" ToRole="CER_POSTGRADO" />
+          <NavigationProperty Name="CMP_MEDICO" Relationship="Self.FK_CMP_MEDICO_CMP_INSTITUCIONEDU" FromRole="CMP_INSTITUCIONEDU" ToRole="CMP_MEDICO" />
+        </EntityType>
+        <EntityType Name="CMP_MEDICO">
+          <Key>
+            <PropertyRef Name="cmedico_id" />
+          </Key>
+          <Property Name="cmedico_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmedico_nrodoc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cmedico_ncolegiatura" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="vmedico_a_paterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vmedico_a_materno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vmedico_nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cmedico_estado" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="vmedico_titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="vmedico_titulo_nro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="vmedico_correo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="vmedico_telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vmedico_direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ncregional_id" Type="Int32" />
+          <Property Name="cmedico_sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="cmedico_tipodoc" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="vmedico_celular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dmedico_colegiatura" Type="DateTime" Precision="0" />
+          <Property Name="ninstitucionedu_id" Type="Int32" />
+          <Property Name="dmedico_nacimiento" Type="DateTime" Precision="0" />
+          <Property Name="cmedico_recertificado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="cubigeo_cod" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CER_PASANTIA" Relationship="Self.FK_CER_PASANTIA_CMP_MEDICO" FromRole="CMP_MEDICO" ToRole="CER_PASANTIA" />
+          <NavigationProperty Name="CER_POSTGRADO" Relationship="Self.FK_CER_POSTGRADO_CMP_MEDICO" FromRole="CMP_MEDICO" ToRole="CER_POSTGRADO" />
+          <NavigationProperty Name="CMP_CREGIONAL" Relationship="Self.FK_CMP_MEDICO_CMP_CREGIONAL" FromRole="CMP_MEDICO" ToRole="CMP_CREGIONAL" />
+          <NavigationProperty Name="CMP_INSTITUCIONEDU" Relationship="Self.FK_CMP_MEDICO_CMP_INSTITUCIONEDU" FromRole="CMP_MEDICO" ToRole="CMP_INSTITUCIONEDU" />
+          <NavigationProperty Name="CMP_UBIGEO" Relationship="Self.FK_CMP_MEDICO_CMP_UBIGEO" FromRole="CMP_MEDICO" ToRole="CMP_UBIGEO" />
+          <NavigationProperty Name="CMP_MEDICOESP" Relationship="Self.FK_CMP_MEDICOESP_CMP_MEDICO" FromRole="CMP_MEDICO" ToRole="CMP_MEDICOESP" />
+        </EntityType>
+        <EntityType Name="CMP_MEDICOESP">
+          <Key>
+            <PropertyRef Name="CMEDICOESP_ID" />
+          </Key>
+          <Property Name="CMEDICOESP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VMEDICOESP_COD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CMEDICO_ID" Type="Int32" />
+          <Property Name="NESPECIALIDAD_ID" Type="Int32" />
+          <Property Name="DMEDICOESP_EMISION" Type="DateTime" Precision="0" />
+          <Property Name="DMEDICOESP_CADUCIDAD" Type="DateTime" Precision="0" />
+          <Property Name="DMEDICOESP_RESOLUCION" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CMP_ESPECIALIDAD" Relationship="Self.FK_CMP_MEDICOESP_CMP_ESPECIALIDAD" FromRole="CMP_MEDICOESP" ToRole="CMP_ESPECIALIDAD" />
+          <NavigationProperty Name="CMP_MEDICO" Relationship="Self.FK_CMP_MEDICOESP_CMP_MEDICO" FromRole="CMP_MEDICOESP" ToRole="CMP_MEDICO" />
+        </EntityType>
+        <EntityType Name="CMP_PRESTADORA">
+          <Key>
+            <PropertyRef Name="nprestadora_id" />
+          </Key>
+          <Property Name="nprestadora_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vprestadora_nom" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CER_PASANTIA" Relationship="Self.FK_CER_PASANTIA_CMP_PRESTADORA" FromRole="CMP_PRESTADORA" ToRole="CER_PASANTIA" />
+        </EntityType>
+        <EntityType Name="CMP_UBIGEO">
+          <Key>
+            <PropertyRef Name="CUBIGEO_COD" />
+          </Key>
+          <Property Name="CUBIGEO_COD" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="VUBIGEO_DEPARTAMENTO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VUBIGEO_PROVINCIA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VUBIGEO_DISTRITO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CMP_MEDICO" Relationship="Self.FK_CMP_MEDICO_CMP_UBIGEO" FromRole="CMP_UBIGEO" ToRole="CMP_MEDICO" />
+        </EntityType>
+        <Association Name="FK_CER_PASANTIA_CMP_MEDICO">
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="0..1" />
+          <End Role="CER_PASANTIA" Type="Self.CER_PASANTIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_MEDICO">
+              <PropertyRef Name="cmedico_id" />
+            </Principal>
+            <Dependent Role="CER_PASANTIA">
+              <PropertyRef Name="cmedico_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CER_PASANTIA_CMP_PRESTADORA">
+          <End Role="CMP_PRESTADORA" Type="Self.CMP_PRESTADORA" Multiplicity="0..1" />
+          <End Role="CER_PASANTIA" Type="Self.CER_PASANTIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_PRESTADORA">
+              <PropertyRef Name="nprestadora_id" />
+            </Principal>
+            <Dependent Role="CER_PASANTIA">
+              <PropertyRef Name="npresatadora_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CER_POSTGRADO_CMP_INSTITUCIONEDU">
+          <End Role="CMP_INSTITUCIONEDU" Type="Self.CMP_INSTITUCIONEDU" Multiplicity="0..1" />
+          <End Role="CER_POSTGRADO" Type="Self.CER_POSTGRADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_INSTITUCIONEDU">
+              <PropertyRef Name="ninstitucionedu_id" />
+            </Principal>
+            <Dependent Role="CER_POSTGRADO">
+              <PropertyRef Name="ninstitucionedu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CER_POSTGRADO_CMP_MEDICO">
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="0..1" />
+          <End Role="CER_POSTGRADO" Type="Self.CER_POSTGRADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_MEDICO">
+              <PropertyRef Name="cmedico_id" />
+            </Principal>
+            <Dependent Role="CER_POSTGRADO">
+              <PropertyRef Name="cmedico_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_MEDICO_CMP_CREGIONAL">
+          <End Role="CMP_CREGIONAL" Type="Self.CMP_CREGIONAL" Multiplicity="0..1" />
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_CREGIONAL">
+              <PropertyRef Name="ncregional_id" />
+            </Principal>
+            <Dependent Role="CMP_MEDICO">
+              <PropertyRef Name="ncregional_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_MEDICOESP_CMP_ESPECIALIDAD">
+          <End Role="CMP_ESPECIALIDAD" Type="Self.CMP_ESPECIALIDAD" Multiplicity="0..1" />
+          <End Role="CMP_MEDICOESP" Type="Self.CMP_MEDICOESP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_ESPECIALIDAD">
+              <PropertyRef Name="nespecialidad_id" />
+            </Principal>
+            <Dependent Role="CMP_MEDICOESP">
+              <PropertyRef Name="NESPECIALIDAD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_MEDICO_CMP_INSTITUCIONEDU">
+          <End Role="CMP_INSTITUCIONEDU" Type="Self.CMP_INSTITUCIONEDU" Multiplicity="0..1" />
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_INSTITUCIONEDU">
+              <PropertyRef Name="ninstitucionedu_id" />
+            </Principal>
+            <Dependent Role="CMP_MEDICO">
+              <PropertyRef Name="ninstitucionedu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_MEDICO_CMP_UBIGEO">
+          <End Role="CMP_UBIGEO" Type="Self.CMP_UBIGEO" Multiplicity="0..1" />
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_UBIGEO">
+              <PropertyRef Name="CUBIGEO_COD" />
+            </Principal>
+            <Dependent Role="CMP_MEDICO">
+              <PropertyRef Name="cubigeo_cod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_MEDICOESP_CMP_MEDICO">
+          <End Role="CMP_MEDICO" Type="Self.CMP_MEDICO" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CMP_MEDICOESP" Type="Self.CMP_MEDICOESP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_MEDICO">
+              <PropertyRef Name="cmedico_id" />
+            </Principal>
+            <Dependent Role="CMP_MEDICOESP">
+              <PropertyRef Name="CMEDICO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ColegioMPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CER_PASANTIA" EntityType="Self.CER_PASANTIA" />
+          <EntitySet Name="CER_POSTGRADO" EntityType="Self.CER_POSTGRADO" />
+          <EntitySet Name="CMP_CREGIONAL" EntityType="Self.CMP_CREGIONAL" />
+          <EntitySet Name="CMP_ESPECIALIDAD" EntityType="Self.CMP_ESPECIALIDAD" />
+          <EntitySet Name="CMP_INSTITUCIONEDU" EntityType="Self.CMP_INSTITUCIONEDU" />
+          <EntitySet Name="CMP_MEDICO" EntityType="Self.CMP_MEDICO" />
+          <EntitySet Name="CMP_MEDICOESP" EntityType="Self.CMP_MEDICOESP" />
+          <EntitySet Name="CMP_PRESTADORA" EntityType="Self.CMP_PRESTADORA" />
+          <EntitySet Name="CMP_UBIGEO" EntityType="Self.CMP_UBIGEO" />
+          <AssociationSet Name="FK_CER_PASANTIA_CMP_MEDICO" Association="Self.FK_CER_PASANTIA_CMP_MEDICO">
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+            <End Role="CER_PASANTIA" EntitySet="CER_PASANTIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CER_PASANTIA_CMP_PRESTADORA" Association="Self.FK_CER_PASANTIA_CMP_PRESTADORA">
+            <End Role="CMP_PRESTADORA" EntitySet="CMP_PRESTADORA" />
+            <End Role="CER_PASANTIA" EntitySet="CER_PASANTIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CER_POSTGRADO_CMP_INSTITUCIONEDU" Association="Self.FK_CER_POSTGRADO_CMP_INSTITUCIONEDU">
+            <End Role="CMP_INSTITUCIONEDU" EntitySet="CMP_INSTITUCIONEDU" />
+            <End Role="CER_POSTGRADO" EntitySet="CER_POSTGRADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CER_POSTGRADO_CMP_MEDICO" Association="Self.FK_CER_POSTGRADO_CMP_MEDICO">
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+            <End Role="CER_POSTGRADO" EntitySet="CER_POSTGRADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_MEDICO_CMP_CREGIONAL" Association="Self.FK_CMP_MEDICO_CMP_CREGIONAL">
+            <End Role="CMP_CREGIONAL" EntitySet="CMP_CREGIONAL" />
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_MEDICOESP_CMP_ESPECIALIDAD" Association="Self.FK_CMP_MEDICOESP_CMP_ESPECIALIDAD">
+            <End Role="CMP_ESPECIALIDAD" EntitySet="CMP_ESPECIALIDAD" />
+            <End Role="CMP_MEDICOESP" EntitySet="CMP_MEDICOESP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_MEDICO_CMP_INSTITUCIONEDU" Association="Self.FK_CMP_MEDICO_CMP_INSTITUCIONEDU">
+            <End Role="CMP_INSTITUCIONEDU" EntitySet="CMP_INSTITUCIONEDU" />
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_MEDICO_CMP_UBIGEO" Association="Self.FK_CMP_MEDICO_CMP_UBIGEO">
+            <End Role="CMP_UBIGEO" EntitySet="CMP_UBIGEO" />
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_MEDICOESP_CMP_MEDICO" Association="Self.FK_CMP_MEDICOESP_CMP_MEDICO">
+            <End Role="CMP_MEDICO" EntitySet="CMP_MEDICO" />
+            <End Role="CMP_MEDICOESP" EntitySet="CMP_MEDICOESP" />
+          </AssociationSet>
+          <FunctionImport Name="usp_CER_PASANTIADelete">
+          <Parameter Name="npasantia_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CER_PASANTIAInsert" ReturnType="Collection(ColegioModel.usp_CER_PASANTIAInsert_Result)">
+            <Parameter Name="vpasantia_dsc" Mode="In" Type="String" />
+            <Parameter Name="dpasantia_inicio" Mode="In" Type="DateTime" />
+            <Parameter Name="dpasantia_fin" Mode="In" Type="DateTime" />
+            <Parameter Name="npresatadora_id" Mode="In" Type="Int32" />
+            <Parameter Name="cmedico_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CER_PASANTIASelect" ReturnType="Collection(ColegioModel.usp_CER_PASANTIASelect_Result)">
+          <Parameter Name="npasantia_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CER_PASANTIAUpdate" ReturnType="Collection(ColegioModel.usp_CER_PASANTIAUpdate_Result)">
+            <Parameter Name="npasantia_id" Mode="In" Type="Int32" />
+            <Parameter Name="vpasantia_dsc" Mode="In" Type="String" />
+            <Parameter Name="dpasantia_inicio" Mode="In" Type="DateTime" />
+            <Parameter Name="dpasantia_fin" Mode="In" Type="DateTime" />
+            <Parameter Name="npresatadora_id" Mode="In" Type="Int32" />
+            <Parameter Name="cmedico_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CER_POSTGRADODelete">
+          <Parameter Name="npostgrado_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CER_POSTGRADOInsert" ReturnType="Collection(ColegioModel.usp_CER_POSTGRADOInsert_Result)">
+            <Parameter Name="dpostgrado_fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="vpostgrado_nombre" Mode="In" Type="String" />
+            <Parameter Name="ninstitucionedu_id" Mode="In" Type="Int32" />
+            <Parameter Name="cmedico_id" Mode="In" Type="Int32" />
+            <Parameter Name="cpostgrado_tipo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CER_POSTGRADOSelect" ReturnType="Collection(ColegioModel.usp_CER_POSTGRADOSelect_Result)">
+          <Parameter Name="npostgrado_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CER_POSTGRADOUpdate" ReturnType="Collection(ColegioModel.usp_CER_POSTGRADOUpdate_Result)">
+            <Parameter Name="npostgrado_id" Mode="In" Type="Int32" />
+            <Parameter Name="dpostgrado_fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="vpostgrado_nombre" Mode="In" Type="String" />
+            <Parameter Name="ninstitucionedu_id" Mode="In" Type="Int32" />
+            <Parameter Name="cmedico_id" Mode="In" Type="Int32" />
+            <Parameter Name="cpostgrado_tipo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_CREGIONALDelete">
+          <Parameter Name="ncregional_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_CREGIONALInsert" ReturnType="Collection(ColegioModel.usp_CMP_CREGIONALInsert_Result)">
+            <Parameter Name="vcregional_cod" Mode="In" Type="String" />
+            <Parameter Name="vcregional_nombre" Mode="In" Type="String" />
+            <Parameter Name="vcregional_abr" Mode="In" Type="String" />
+            <Parameter Name="vcregional_estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_CREGIONALSelect" ReturnType="Collection(ColegioModel.usp_CMP_CREGIONALSelect_Result)">
+          <Parameter Name="ncregional_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_CREGIONALUpdate" ReturnType="Collection(ColegioModel.usp_CMP_CREGIONALUpdate_Result)">
+            <Parameter Name="ncregional_id" Mode="In" Type="Int32" />
+            <Parameter Name="vcregional_cod" Mode="In" Type="String" />
+            <Parameter Name="vcregional_nombre" Mode="In" Type="String" />
+            <Parameter Name="vcregional_abr" Mode="In" Type="String" />
+            <Parameter Name="vcregional_estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_ESPECIALIDADDelete">
+          <Parameter Name="nespecialidad_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_ESPECIALIDADInsert" ReturnType="Collection(ColegioModel.usp_CMP_ESPECIALIDADInsert_Result)">
+            <Parameter Name="cespecialidad_estado" Mode="In" Type="String" />
+            <Parameter Name="cespecialidad_nombre" Mode="In" Type="String" />
+            <Parameter Name="vespecialidad_cod" Mode="In" Type="String" />
+            <Parameter Name="vespecialidad_tipo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_ESPECIALIDADSelect" ReturnType="Collection(ColegioModel.usp_CMP_ESPECIALIDADSelect_Result)">
+          <Parameter Name="nespecialidad_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_ESPECIALIDADUpdate" ReturnType="Collection(ColegioModel.usp_CMP_ESPECIALIDADUpdate_Result)">
+            <Parameter Name="nespecialidad_id" Mode="In" Type="Int32" />
+            <Parameter Name="cespecialidad_estado" Mode="In" Type="String" />
+            <Parameter Name="cespecialidad_nombre" Mode="In" Type="String" />
+            <Parameter Name="vespecialidad_cod" Mode="In" Type="String" />
+            <Parameter Name="vespecialidad_tipo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_INSTITUCIONEDUDelete">
+          <Parameter Name="ninstitucionedu_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_INSTITUCIONEDUInsert" ReturnType="Collection(ColegioModel.usp_CMP_INSTITUCIONEDUInsert_Result)">
+            <Parameter Name="cinstitucionedu_nombre" Mode="In" Type="String" />
+            <Parameter Name="cinstitucionedu_tipo" Mode="In" Type="String" />
+            <Parameter Name="cinstitucionedu_estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_INSTITUCIONEDUSelect" ReturnType="Collection(ColegioModel.usp_CMP_INSTITUCIONEDUSelect_Result)">
+          <Parameter Name="ninstitucionedu_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_INSTITUCIONEDUUpdate" ReturnType="Collection(ColegioModel.usp_CMP_INSTITUCIONEDUUpdate_Result)">
+            <Parameter Name="ninstitucionedu_id" Mode="In" Type="Int32" />
+            <Parameter Name="cinstitucionedu_nombre" Mode="In" Type="String" />
+            <Parameter Name="cinstitucionedu_tipo" Mode="In" Type="String" />
+            <Parameter Name="cinstitucionedu_estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_MEDICODelete">
+          <Parameter Name="cmedico_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_MEDICOESPDelete">
+          <Parameter Name="CMEDICOESP_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_MEDICOESPInsert">
+            <Parameter Name="VMEDICOESP_COD" Mode="In" Type="String" />
+            <Parameter Name="CMEDICO_ID" Mode="In" Type="Int32" />
+            <Parameter Name="NESPECIALIDAD_ID" Mode="In" Type="Int32" />
+            <Parameter Name="NINSTITUCIONEDU_ID" Mode="In" Type="Int32" />
+            <Parameter Name="NCREGIONAL_ID" Mode="In" Type="Int32" />
+            <Parameter Name="DMEDICOESP_EMISION" Mode="In" Type="DateTime" />
+            <Parameter Name="DMEDICOESP_CADUCIDAD" Mode="In" Type="DateTime" />
+            <Parameter Name="DMEDICOESP_RESOLUCION" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_MEDICOESPSelect">
+          <Parameter Name="CMEDICOESP_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_MEDICOESPUpdate">
+            <Parameter Name="CMEDICOESP_ID" Mode="In" Type="Int32" />
+            <Parameter Name="VMEDICOESP_COD" Mode="In" Type="String" />
+            <Parameter Name="CMEDICO_ID" Mode="In" Type="Int32" />
+            <Parameter Name="NESPECIALIDAD_ID" Mode="In" Type="Int32" />
+            <Parameter Name="NINSTITUCIONEDU_ID" Mode="In" Type="Int32" />
+            <Parameter Name="NCREGIONAL_ID" Mode="In" Type="Int32" />
+            <Parameter Name="DMEDICOESP_EMISION" Mode="In" Type="DateTime" />
+            <Parameter Name="DMEDICOESP_CADUCIDAD" Mode="In" Type="DateTime" />
+            <Parameter Name="DMEDICOESP_RESOLUCION" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_MEDICOInsert" ReturnType="Collection(ColegioModel.usp_CMP_MEDICOInsert_Result)">
+            <Parameter Name="cmedico_nrodoc" Mode="In" Type="String" />
+            <Parameter Name="cmedico_ncolegiatura" Mode="In" Type="String" />
+            <Parameter Name="vmedico_a_paterno" Mode="In" Type="String" />
+            <Parameter Name="vmedico_a_materno" Mode="In" Type="String" />
+            <Parameter Name="vmedico_nombres" Mode="In" Type="String" />
+            <Parameter Name="cmedico_estado" Mode="In" Type="String" />
+            <Parameter Name="vmedico_titulo" Mode="In" Type="String" />
+            <Parameter Name="vmedico_titulo_nro" Mode="In" Type="String" />
+            <Parameter Name="vmedico_correo" Mode="In" Type="String" />
+            <Parameter Name="vmedico_telefono" Mode="In" Type="String" />
+            <Parameter Name="vmedico_direccion" Mode="In" Type="String" />
+            <Parameter Name="ncregional_id" Mode="In" Type="Int32" />
+            <Parameter Name="cmedico_sexo" Mode="In" Type="String" />
+            <Parameter Name="cmedico_tipodoc" Mode="In" Type="String" />
+            <Parameter Name="vmedico_celular" Mode="In" Type="String" />
+            <Parameter Name="dmedico_colegiatura" Mode="In" Type="DateTime" />
+            <Parameter Name="ninstitucionedu_id" Mode="In" Type="Int32" />
+            <Parameter Name="dmedico_nacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="cmedico_recertificado" Mode="In" Type="String" />
+            <Parameter Name="cubigeo_cod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_MEDICOSelect" ReturnType="Collection(ColegioModel.usp_CMP_MEDICOSelect_Result)">
+          <Parameter Name="cmedico_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_MEDICOUpdate" ReturnType="Collection(ColegioModel.usp_CMP_MEDICOUpdate_Result)">
+            <Parameter Name="cmedico_id" Mode="In" Type="Int32" />
+            <Parameter Name="cmedico_nrodoc" Mode="In" Type="String" />
+            <Parameter Name="cmedico_ncolegiatura" Mode="In" Type="String" />
+            <Parameter Name="vmedico_a_paterno" Mode="In" Type="String" />
+            <Parameter Name="vmedico_a_materno" Mode="In" Type="String" />
+            <Parameter Name="vmedico_nombres" Mode="In" Type="String" />
+            <Parameter Name="cmedico_estado" Mode="In" Type="String" />
+            <Parameter Name="vmedico_titulo" Mode="In" Type="String" />
+            <Parameter Name="vmedico_titulo_nro" Mode="In" Type="String" />
+            <Parameter Name="vmedico_correo" Mode="In" Type="String" />
+            <Parameter Name="vmedico_telefono" Mode="In" Type="String" />
+            <Parameter Name="vmedico_direccion" Mode="In" Type="String" />
+            <Parameter Name="ncregional_id" Mode="In" Type="Int32" />
+            <Parameter Name="cmedico_sexo" Mode="In" Type="String" />
+            <Parameter Name="cmedico_tipodoc" Mode="In" Type="String" />
+            <Parameter Name="vmedico_celular" Mode="In" Type="String" />
+            <Parameter Name="dmedico_colegiatura" Mode="In" Type="DateTime" />
+            <Parameter Name="ninstitucionedu_id" Mode="In" Type="Int32" />
+            <Parameter Name="dmedico_nacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="cmedico_recertificado" Mode="In" Type="String" />
+            <Parameter Name="cubigeo_cod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_PRESTADORADelete">
+          <Parameter Name="nprestadora_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_PRESTADORAInsert" ReturnType="Collection(ColegioModel.usp_CMP_PRESTADORAInsert_Result)">
+          <Parameter Name="vprestadora_nom" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_PRESTADORASelect" ReturnType="Collection(ColegioModel.usp_CMP_PRESTADORASelect_Result)">
+          <Parameter Name="nprestadora_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_PRESTADORAUpdate" ReturnType="Collection(ColegioModel.usp_CMP_PRESTADORAUpdate_Result)">
+            <Parameter Name="nprestadora_id" Mode="In" Type="Int32" />
+            <Parameter Name="vprestadora_nom" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_UBIGEODelete">
+          <Parameter Name="CUBIGEO_COD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_UBIGEOInsert" ReturnType="Collection(ColegioModel.usp_CMP_UBIGEOInsert_Result)">
+            <Parameter Name="CUBIGEO_COD" Mode="In" Type="String" />
+            <Parameter Name="VUBIGEO_DEPARTAMENTO" Mode="In" Type="String" />
+            <Parameter Name="VUBIGEO_PROVINCIA" Mode="In" Type="String" />
+            <Parameter Name="VUBIGEO_DISTRITO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_UBIGEOSelect" ReturnType="Collection(ColegioModel.usp_CMP_UBIGEOSelect_Result)">
+          <Parameter Name="CUBIGEO_COD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CMP_UBIGEOUpdate" ReturnType="Collection(ColegioModel.usp_CMP_UBIGEOUpdate_Result)">
+            <Parameter Name="CUBIGEO_COD" Mode="In" Type="String" />
+            <Parameter Name="VUBIGEO_DEPARTAMENTO" Mode="In" Type="String" />
+            <Parameter Name="VUBIGEO_PROVINCIA" Mode="In" Type="String" />
+            <Parameter Name="VUBIGEO_DISTRITO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Medicos_by_CRegionalID" ReturnType="Collection(ColegioModel.usp_Medicos_by_CRegionalID_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Pasantia_By_MedicoID" ReturnType="Collection(ColegioModel.usp_Pasantia_By_MedicoID_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Pasantia_By_PrestadoraID" ReturnType="Collection(ColegioModel.usp_Pasantia_By_PrestadoraID_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="inicio" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PostGrado_By_MedicoID" ReturnType="Collection(ColegioModel.usp_PostGrado_By_MedicoID_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_List_Medicos" ReturnType="Collection(ColegioModel.usp_List_Medicos_Result)" />
+          <FunctionImport Name="usp_Medico_By_Id" ReturnType="Collection(ColegioModel.usp_Medico_By_Id_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Especialidad_By_MedicoID" ReturnType="Collection(ColegioModel.usp_Especialidad_By_MedicoID_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Medico_By_NroCol" ReturnType="Collection(ColegioModel.usp_Medico_By_NroCol_Result)">
+          <Parameter Name="nro" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_List_CRegional" ReturnType="Collection(ColegioModel.usp_List_CRegional_Result)" />
+          <FunctionImport Name="usp_Medico_By_Paterno" ReturnType="Collection(ColegioModel.usp_Medico_By_Paterno_Result)">
+          <Parameter Name="paterno" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_List_MedicosInstEdu" ReturnType="Collection(ColegioModel.usp_List_MedicosInstEdu_Result)" />
+        </EntityContainer>
+        <ComplexType Name="usp_CER_PASANTIAInsert_Result">
+          <Property Type="Int32" Name="npasantia_id" Nullable="false" />
+          <Property Type="String" Name="vpasantia_dsc" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="dpasantia_inicio" Nullable="true" />
+          <Property Type="DateTime" Name="dpasantia_fin" Nullable="true" />
+          <Property Type="Int32" Name="npresatadora_id" Nullable="true" />
+          <Property Type="Int32" Name="cmedico_id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_CER_PASANTIASelect_Result">
+          <Property Type="Int32" Name="npasantia_id" Nullable="false" />
+          <Property Type="String" Name="vpasantia_dsc" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="dpasantia_inicio" Nullable="true" />
+          <Property Type="DateTime" Name="dpasantia_fin" Nullable="true" />
+          <Property Type="Int32" Name="npresatadora_id" Nullable="true" />
+          <Property Type="Int32" Name="cmedico_id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_CER_PASANTIAUpdate_Result">
+          <Property Type="Int32" Name="npasantia_id" Nullable="false" />
+          <Property Type="String" Name="vpasantia_dsc" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="dpasantia_inicio" Nullable="true" />
+          <Property Type="DateTime" Name="dpasantia_fin" Nullable="true" />
+          <Property Type="Int32" Name="npresatadora_id" Nullable="true" />
+          <Property Type="Int32" Name="cmedico_id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_CER_POSTGRADOInsert_Result">
+          <Property Type="Int32" Name="npostgrado_id" Nullable="false" />
+          <Property Type="DateTime" Name="dpostgrado_fecha" Nullable="true" />
+          <Property Type="String" Name="vpostgrado_nombre" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="ninstitucionedu_id" Nullable="true" />
+          <Property Type="Int32" Name="cmedico_id" Nullable="true" />
+          <Property Type="String" Name="cpostgrado_tipo" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="usp_CER_POSTGRADOSelect_Result">
+          <Property Type="Int32" Name="npostgrado_id" Nullable="false" />
+          <Property Type="DateTime" Name="dpostgrado_fecha" Nullable="true" />
+          <Property Type="String" Name="vpostgrado_nombre" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="ninstitucionedu_id" Nullable="true" />
+          <Property Type="Int32" Name="cmedico_id" Nullable="true" />
+          <Property Type="String" Name="cpostgrado_tipo" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="usp_CER_POSTGRADOUpdate_Result">
+          <Property Type="Int32" Name="npostgrado_id" Nullable="false" />
+          <Property Type="DateTime" Name="dpostgrado_fecha" Nullable="true" />
+          <Property Type="String" Name="vpostgrado_nombre" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="ninstitucionedu_id" Nullable="true" />
+          <Property Type="Int32" Name="cmedico_id" Nullable="true" />
+          <Property Type="String" Name="cpostgrado_tipo" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_CREGIONALInsert_Result">
+          <Property Type="Int32" Name="ncregional_id" Nullable="false" />
+          <Property Type="String" Name="vcregional_cod" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vcregional_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vcregional_abr" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vcregional_estado" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_CREGIONALSelect_Result">
+          <Property Type="Int32" Name="ncregional_id" Nullable="false" />
+          <Property Type="String" Name="vcregional_cod" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vcregional_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vcregional_abr" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vcregional_estado" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_CREGIONALUpdate_Result">
+          <Property Type="Int32" Name="ncregional_id" Nullable="false" />
+          <Property Type="String" Name="vcregional_cod" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vcregional_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vcregional_abr" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vcregional_estado" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_ESPECIALIDADInsert_Result">
+          <Property Type="Int32" Name="nespecialidad_id" Nullable="false" />
+          <Property Type="String" Name="cespecialidad_estado" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cespecialidad_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vespecialidad_cod" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vespecialidad_tipo" Nullable="true" MaxLength="4" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_ESPECIALIDADSelect_Result">
+          <Property Type="Int32" Name="nespecialidad_id" Nullable="false" />
+          <Property Type="String" Name="cespecialidad_estado" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cespecialidad_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vespecialidad_cod" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vespecialidad_tipo" Nullable="true" MaxLength="4" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_ESPECIALIDADUpdate_Result">
+          <Property Type="Int32" Name="nespecialidad_id" Nullable="false" />
+          <Property Type="String" Name="cespecialidad_estado" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cespecialidad_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vespecialidad_cod" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vespecialidad_tipo" Nullable="true" MaxLength="4" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_INSTITUCIONEDUInsert_Result">
+          <Property Type="Int32" Name="ninstitucionedu_id" Nullable="false" />
+          <Property Type="String" Name="cinstitucionedu_nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="cinstitucionedu_tipo" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cinstitucionedu_estado" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_INSTITUCIONEDUSelect_Result">
+          <Property Type="Int32" Name="ninstitucionedu_id" Nullable="false" />
+          <Property Type="String" Name="cinstitucionedu_nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="cinstitucionedu_tipo" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cinstitucionedu_estado" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_INSTITUCIONEDUUpdate_Result">
+          <Property Type="Int32" Name="ninstitucionedu_id" Nullable="false" />
+          <Property Type="String" Name="cinstitucionedu_nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="cinstitucionedu_tipo" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cinstitucionedu_estado" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_MEDICOInsert_Result">
+          <Property Type="Int32" Name="cmedico_id" Nullable="false" />
+          <Property Type="String" Name="cmedico_nrodoc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="cmedico_ncolegiatura" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="vmedico_a_paterno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_a_materno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cmedico_estado" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="vmedico_titulo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vmedico_titulo_nro" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vmedico_correo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="vmedico_telefono" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_direccion" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="ncregional_id" Nullable="true" />
+          <Property Type="String" Name="cmedico_sexo" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cmedico_tipodoc" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="vmedico_celular" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="dmedico_colegiatura" Nullable="true" />
+          <Property Type="Int32" Name="ninstitucionedu_id" Nullable="true" />
+          <Property Type="DateTime" Name="dmedico_nacimiento" Nullable="true" />
+          <Property Type="String" Name="cmedico_recertificado" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cubigeo_cod" Nullable="true" MaxLength="6" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_MEDICOSelect_Result">
+          <Property Type="Int32" Name="cmedico_id" Nullable="false" />
+          <Property Type="String" Name="cmedico_nrodoc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="cmedico_ncolegiatura" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="vmedico_a_paterno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_a_materno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cmedico_estado" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="vmedico_titulo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vmedico_titulo_nro" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vmedico_correo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="vmedico_telefono" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_direccion" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="ncregional_id" Nullable="true" />
+          <Property Type="String" Name="cmedico_sexo" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cmedico_tipodoc" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="vmedico_celular" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="dmedico_colegiatura" Nullable="true" />
+          <Property Type="Int32" Name="ninstitucionedu_id" Nullable="true" />
+          <Property Type="DateTime" Name="dmedico_nacimiento" Nullable="true" />
+          <Property Type="String" Name="cmedico_recertificado" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cubigeo_cod" Nullable="true" MaxLength="6" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_MEDICOUpdate_Result">
+          <Property Type="Int32" Name="cmedico_id" Nullable="false" />
+          <Property Type="String" Name="cmedico_nrodoc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="cmedico_ncolegiatura" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="vmedico_a_paterno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_a_materno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cmedico_estado" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="vmedico_titulo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vmedico_titulo_nro" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vmedico_correo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="vmedico_telefono" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_direccion" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="ncregional_id" Nullable="true" />
+          <Property Type="String" Name="cmedico_sexo" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cmedico_tipodoc" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="vmedico_celular" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="dmedico_colegiatura" Nullable="true" />
+          <Property Type="Int32" Name="ninstitucionedu_id" Nullable="true" />
+          <Property Type="DateTime" Name="dmedico_nacimiento" Nullable="true" />
+          <Property Type="String" Name="cmedico_recertificado" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="cubigeo_cod" Nullable="true" MaxLength="6" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_PRESTADORAInsert_Result">
+          <Property Type="Int32" Name="nprestadora_id" Nullable="false" />
+          <Property Type="String" Name="vprestadora_nom" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_PRESTADORASelect_Result">
+          <Property Type="Int32" Name="nprestadora_id" Nullable="false" />
+          <Property Type="String" Name="vprestadora_nom" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_PRESTADORAUpdate_Result">
+          <Property Type="Int32" Name="nprestadora_id" Nullable="false" />
+          <Property Type="String" Name="vprestadora_nom" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_UBIGEOInsert_Result">
+          <Property Type="String" Name="CUBIGEO_COD" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="VUBIGEO_DEPARTAMENTO" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_PROVINCIA" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_DISTRITO" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_UBIGEOSelect_Result">
+          <Property Type="String" Name="CUBIGEO_COD" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="VUBIGEO_DEPARTAMENTO" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_PROVINCIA" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_DISTRITO" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_CMP_UBIGEOUpdate_Result">
+          <Property Type="String" Name="CUBIGEO_COD" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="VUBIGEO_DEPARTAMENTO" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_PROVINCIA" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_DISTRITO" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_Medicos_by_CRegionalID_Result">
+          <Property Type="String" Name="cmedico_nrodoc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="cmedico_ncolegiatura" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="vmedico_a_paterno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_a_materno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_correo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="vmedico_telefono" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_celular" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_Pasantia_By_MedicoID_Result">
+          <Property Type="String" Name="vpasantia_dsc" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="dpasantia_inicio" Nullable="true" />
+          <Property Type="DateTime" Name="dpasantia_fin" Nullable="true" />
+          <Property Type="Int32" Name="nprestadora_id" Nullable="false" />
+          <Property Type="String" Name="vprestadora_nom" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="usp_Pasantia_By_PrestadoraID_Result">
+          <Property Type="String" Name="vpasantia_dsc" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="dpasantia_inicio" Nullable="true" />
+          <Property Type="DateTime" Name="dpasantia_fin" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_PostGrado_By_MedicoID_Result">
+          <Property Type="DateTime" Name="dpostgrado_fecha" Nullable="true" />
+          <Property Type="String" Name="vpostgrado_nombre" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="ninstitucionedu_id" Nullable="true" />
+          <Property Type="String" Name="cinstitucionedu_nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="cpostgrado_tipo" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="usp_List_Medicos_Result">
+          <Property Type="Int32" Name="cmedico_id" Nullable="false" />
+          <Property Type="String" Name="cmedico_ncolegiatura" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="fullname" Nullable="true" MaxLength="153" />
+        </ComplexType>
+        <ComplexType Name="usp_Medico_By_Id_Result">
+          <Property Type="Int32" Name="cmedico_id" Nullable="false" />
+          <Property Type="String" Name="cmedico_ncolegiatura" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="cmedico_nrodoc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vmedico_nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_a_paterno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_a_materno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_celular" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_telefono" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="dmedico_nacimiento" Nullable="true" />
+          <Property Type="String" Name="vmedico_correo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="cinstitucionedu_nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="vcregional_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vmedico_direccion" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="VUBIGEO_DEPARTAMENTO" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_PROVINCIA" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_DISTRITO" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_Especialidad_By_MedicoID_Result">
+          <Property Type="String" Name="VMEDICOESP_COD" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="NESPECIALIDAD_ID" Nullable="true" />
+          <Property Type="String" Name="cespecialidad_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="DMEDICOESP_EMISION" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_Medico_By_NroCol_Result">
+          <Property Type="Int32" Name="cmedico_id" Nullable="false" />
+          <Property Type="String" Name="cmedico_ncolegiatura" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="cmedico_nrodoc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vmedico_nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_a_paterno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_a_materno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_celular" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_telefono" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="dmedico_nacimiento" Nullable="true" />
+          <Property Type="String" Name="vmedico_correo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="cinstitucionedu_nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="vcregional_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vmedico_direccion" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="VUBIGEO_DEPARTAMENTO" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_PROVINCIA" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_DISTRITO" Nullable="true" MaxLength="255" />
+          <Property Type="DateTime" Name="dmedico_colegiatura" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_List_CRegional_Result">
+          <Property Type="Int32" Name="ncregional_id" Nullable="false" />
+          <Property Type="String" Name="vcregional_nombre" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_Medico_By_Paterno_Result">
+          <Property Type="Int32" Name="cmedico_id" Nullable="false" />
+          <Property Type="String" Name="cmedico_ncolegiatura" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="cmedico_nrodoc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vmedico_nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_a_paterno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_a_materno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_celular" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vmedico_telefono" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="dmedico_nacimiento" Nullable="true" />
+          <Property Type="String" Name="vmedico_correo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="cinstitucionedu_nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="vcregional_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vmedico_direccion" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="VUBIGEO_DEPARTAMENTO" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_PROVINCIA" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VUBIGEO_DISTRITO" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_List_MedicosInstEdu_Result">
+          <Property Type="Int32" Name="ninstitucionedu_id" Nullable="false" />
+          <Property Type="String" Name="cinstitucionedu_nombre" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="contador" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ColegioModelStoreContainer" CdmEntityContainer="ColegioMPEntities">
+          <EntitySetMapping Name="CER_PASANTIA">
+            <EntityTypeMapping TypeName="ColegioModel.CER_PASANTIA">
+              <MappingFragment StoreEntitySet="CER_PASANTIA">
+                <ScalarProperty Name="npasantia_id" ColumnName="npasantia_id" />
+                <ScalarProperty Name="vpasantia_dsc" ColumnName="vpasantia_dsc" />
+                <ScalarProperty Name="dpasantia_inicio" ColumnName="dpasantia_inicio" />
+                <ScalarProperty Name="dpasantia_fin" ColumnName="dpasantia_fin" />
+                <ScalarProperty Name="npresatadora_id" ColumnName="npresatadora_id" />
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CER_POSTGRADO">
+            <EntityTypeMapping TypeName="ColegioModel.CER_POSTGRADO">
+              <MappingFragment StoreEntitySet="CER_POSTGRADO">
+                <ScalarProperty Name="npostgrado_id" ColumnName="npostgrado_id" />
+                <ScalarProperty Name="dpostgrado_fecha" ColumnName="dpostgrado_fecha" />
+                <ScalarProperty Name="vpostgrado_nombre" ColumnName="vpostgrado_nombre" />
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cpostgrado_tipo" ColumnName="cpostgrado_tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_CREGIONAL">
+            <EntityTypeMapping TypeName="ColegioModel.CMP_CREGIONAL">
+              <MappingFragment StoreEntitySet="CMP_CREGIONAL">
+                <ScalarProperty Name="ncregional_id" ColumnName="ncregional_id" />
+                <ScalarProperty Name="vcregional_cod" ColumnName="vcregional_cod" />
+                <ScalarProperty Name="vcregional_nombre" ColumnName="vcregional_nombre" />
+                <ScalarProperty Name="vcregional_abr" ColumnName="vcregional_abr" />
+                <ScalarProperty Name="vcregional_estado" ColumnName="vcregional_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_ESPECIALIDAD">
+            <EntityTypeMapping TypeName="ColegioModel.CMP_ESPECIALIDAD">
+              <MappingFragment StoreEntitySet="CMP_ESPECIALIDAD">
+                <ScalarProperty Name="nespecialidad_id" ColumnName="nespecialidad_id" />
+                <ScalarProperty Name="cespecialidad_estado" ColumnName="cespecialidad_estado" />
+                <ScalarProperty Name="cespecialidad_nombre" ColumnName="cespecialidad_nombre" />
+                <ScalarProperty Name="vespecialidad_cod" ColumnName="vespecialidad_cod" />
+                <ScalarProperty Name="vespecialidad_tipo" ColumnName="vespecialidad_tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_INSTITUCIONEDU">
+            <EntityTypeMapping TypeName="ColegioModel.CMP_INSTITUCIONEDU">
+              <MappingFragment StoreEntitySet="CMP_INSTITUCIONEDU">
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="cinstitucionedu_nombre" ColumnName="cinstitucionedu_nombre" />
+                <ScalarProperty Name="cinstitucionedu_tipo" ColumnName="cinstitucionedu_tipo" />
+                <ScalarProperty Name="cinstitucionedu_estado" ColumnName="cinstitucionedu_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_MEDICO">
+            <EntityTypeMapping TypeName="ColegioModel.CMP_MEDICO">
+              <MappingFragment StoreEntitySet="CMP_MEDICO">
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cmedico_nrodoc" ColumnName="cmedico_nrodoc" />
+                <ScalarProperty Name="cmedico_ncolegiatura" ColumnName="cmedico_ncolegiatura" />
+                <ScalarProperty Name="vmedico_a_paterno" ColumnName="vmedico_a_paterno" />
+                <ScalarProperty Name="vmedico_a_materno" ColumnName="vmedico_a_materno" />
+                <ScalarProperty Name="vmedico_nombres" ColumnName="vmedico_nombres" />
+                <ScalarProperty Name="cmedico_estado" ColumnName="cmedico_estado" />
+                <ScalarProperty Name="vmedico_titulo" ColumnName="vmedico_titulo" />
+                <ScalarProperty Name="vmedico_titulo_nro" ColumnName="vmedico_titulo_nro" />
+                <ScalarProperty Name="vmedico_correo" ColumnName="vmedico_correo" />
+                <ScalarProperty Name="vmedico_telefono" ColumnName="vmedico_telefono" />
+                <ScalarProperty Name="vmedico_direccion" ColumnName="vmedico_direccion" />
+                <ScalarProperty Name="ncregional_id" ColumnName="ncregional_id" />
+                <ScalarProperty Name="cmedico_sexo" ColumnName="cmedico_sexo" />
+                <ScalarProperty Name="cmedico_tipodoc" ColumnName="cmedico_tipodoc" />
+                <ScalarProperty Name="vmedico_celular" ColumnName="vmedico_celular" />
+                <ScalarProperty Name="dmedico_colegiatura" ColumnName="dmedico_colegiatura" />
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="dmedico_nacimiento" ColumnName="dmedico_nacimiento" />
+                <ScalarProperty Name="cmedico_recertificado" ColumnName="cmedico_recertificado" />
+                <ScalarProperty Name="cubigeo_cod" ColumnName="cubigeo_cod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_MEDICOESP">
+            <EntityTypeMapping TypeName="ColegioModel.CMP_MEDICOESP">
+              <MappingFragment StoreEntitySet="CMP_MEDICOESP">
+                <ScalarProperty Name="CMEDICOESP_ID" ColumnName="CMEDICOESP_ID" />
+                <ScalarProperty Name="VMEDICOESP_COD" ColumnName="VMEDICOESP_COD" />
+                <ScalarProperty Name="CMEDICO_ID" ColumnName="CMEDICO_ID" />
+                <ScalarProperty Name="NESPECIALIDAD_ID" ColumnName="NESPECIALIDAD_ID" />
+                <ScalarProperty Name="DMEDICOESP_EMISION" ColumnName="DMEDICOESP_EMISION" />
+                <ScalarProperty Name="DMEDICOESP_CADUCIDAD" ColumnName="DMEDICOESP_CADUCIDAD" />
+                <ScalarProperty Name="DMEDICOESP_RESOLUCION" ColumnName="DMEDICOESP_RESOLUCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_PRESTADORA">
+            <EntityTypeMapping TypeName="ColegioModel.CMP_PRESTADORA">
+              <MappingFragment StoreEntitySet="CMP_PRESTADORA">
+                <ScalarProperty Name="nprestadora_id" ColumnName="nprestadora_id" />
+                <ScalarProperty Name="vprestadora_nom" ColumnName="vprestadora_nom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_UBIGEO">
+            <EntityTypeMapping TypeName="ColegioModel.CMP_UBIGEO">
+              <MappingFragment StoreEntitySet="CMP_UBIGEO">
+                <ScalarProperty Name="CUBIGEO_COD" ColumnName="CUBIGEO_COD" />
+                <ScalarProperty Name="VUBIGEO_DEPARTAMENTO" ColumnName="VUBIGEO_DEPARTAMENTO" />
+                <ScalarProperty Name="VUBIGEO_PROVINCIA" ColumnName="VUBIGEO_PROVINCIA" />
+                <ScalarProperty Name="VUBIGEO_DISTRITO" ColumnName="VUBIGEO_DISTRITO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_CER_PASANTIADelete" FunctionName="ColegioModel.Store.usp_CER_PASANTIADelete" />
+          <FunctionImportMapping FunctionImportName="usp_CER_PASANTIAInsert" FunctionName="ColegioModel.Store.usp_CER_PASANTIAInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CER_PASANTIAInsert_Result">
+                <ScalarProperty Name="npasantia_id" ColumnName="npasantia_id" />
+                <ScalarProperty Name="vpasantia_dsc" ColumnName="vpasantia_dsc" />
+                <ScalarProperty Name="dpasantia_inicio" ColumnName="dpasantia_inicio" />
+                <ScalarProperty Name="dpasantia_fin" ColumnName="dpasantia_fin" />
+                <ScalarProperty Name="npresatadora_id" ColumnName="npresatadora_id" />
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CER_PASANTIASelect" FunctionName="ColegioModel.Store.usp_CER_PASANTIASelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CER_PASANTIASelect_Result">
+                <ScalarProperty Name="npasantia_id" ColumnName="npasantia_id" />
+                <ScalarProperty Name="vpasantia_dsc" ColumnName="vpasantia_dsc" />
+                <ScalarProperty Name="dpasantia_inicio" ColumnName="dpasantia_inicio" />
+                <ScalarProperty Name="dpasantia_fin" ColumnName="dpasantia_fin" />
+                <ScalarProperty Name="npresatadora_id" ColumnName="npresatadora_id" />
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CER_PASANTIAUpdate" FunctionName="ColegioModel.Store.usp_CER_PASANTIAUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CER_PASANTIAUpdate_Result">
+                <ScalarProperty Name="npasantia_id" ColumnName="npasantia_id" />
+                <ScalarProperty Name="vpasantia_dsc" ColumnName="vpasantia_dsc" />
+                <ScalarProperty Name="dpasantia_inicio" ColumnName="dpasantia_inicio" />
+                <ScalarProperty Name="dpasantia_fin" ColumnName="dpasantia_fin" />
+                <ScalarProperty Name="npresatadora_id" ColumnName="npresatadora_id" />
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CER_POSTGRADODelete" FunctionName="ColegioModel.Store.usp_CER_POSTGRADODelete" />
+          <FunctionImportMapping FunctionImportName="usp_CER_POSTGRADOInsert" FunctionName="ColegioModel.Store.usp_CER_POSTGRADOInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CER_POSTGRADOInsert_Result">
+                <ScalarProperty Name="npostgrado_id" ColumnName="npostgrado_id" />
+                <ScalarProperty Name="dpostgrado_fecha" ColumnName="dpostgrado_fecha" />
+                <ScalarProperty Name="vpostgrado_nombre" ColumnName="vpostgrado_nombre" />
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cpostgrado_tipo" ColumnName="cpostgrado_tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CER_POSTGRADOSelect" FunctionName="ColegioModel.Store.usp_CER_POSTGRADOSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CER_POSTGRADOSelect_Result">
+                <ScalarProperty Name="npostgrado_id" ColumnName="npostgrado_id" />
+                <ScalarProperty Name="dpostgrado_fecha" ColumnName="dpostgrado_fecha" />
+                <ScalarProperty Name="vpostgrado_nombre" ColumnName="vpostgrado_nombre" />
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cpostgrado_tipo" ColumnName="cpostgrado_tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CER_POSTGRADOUpdate" FunctionName="ColegioModel.Store.usp_CER_POSTGRADOUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CER_POSTGRADOUpdate_Result">
+                <ScalarProperty Name="npostgrado_id" ColumnName="npostgrado_id" />
+                <ScalarProperty Name="dpostgrado_fecha" ColumnName="dpostgrado_fecha" />
+                <ScalarProperty Name="vpostgrado_nombre" ColumnName="vpostgrado_nombre" />
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cpostgrado_tipo" ColumnName="cpostgrado_tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_CREGIONALDelete" FunctionName="ColegioModel.Store.usp_CMP_CREGIONALDelete" />
+          <FunctionImportMapping FunctionImportName="usp_CMP_CREGIONALInsert" FunctionName="ColegioModel.Store.usp_CMP_CREGIONALInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_CREGIONALInsert_Result">
+                <ScalarProperty Name="ncregional_id" ColumnName="ncregional_id" />
+                <ScalarProperty Name="vcregional_cod" ColumnName="vcregional_cod" />
+                <ScalarProperty Name="vcregional_nombre" ColumnName="vcregional_nombre" />
+                <ScalarProperty Name="vcregional_abr" ColumnName="vcregional_abr" />
+                <ScalarProperty Name="vcregional_estado" ColumnName="vcregional_estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_CREGIONALSelect" FunctionName="ColegioModel.Store.usp_CMP_CREGIONALSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_CREGIONALSelect_Result">
+                <ScalarProperty Name="ncregional_id" ColumnName="ncregional_id" />
+                <ScalarProperty Name="vcregional_cod" ColumnName="vcregional_cod" />
+                <ScalarProperty Name="vcregional_nombre" ColumnName="vcregional_nombre" />
+                <ScalarProperty Name="vcregional_abr" ColumnName="vcregional_abr" />
+                <ScalarProperty Name="vcregional_estado" ColumnName="vcregional_estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_CREGIONALUpdate" FunctionName="ColegioModel.Store.usp_CMP_CREGIONALUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_CREGIONALUpdate_Result">
+                <ScalarProperty Name="ncregional_id" ColumnName="ncregional_id" />
+                <ScalarProperty Name="vcregional_cod" ColumnName="vcregional_cod" />
+                <ScalarProperty Name="vcregional_nombre" ColumnName="vcregional_nombre" />
+                <ScalarProperty Name="vcregional_abr" ColumnName="vcregional_abr" />
+                <ScalarProperty Name="vcregional_estado" ColumnName="vcregional_estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_ESPECIALIDADDelete" FunctionName="ColegioModel.Store.usp_CMP_ESPECIALIDADDelete" />
+          <FunctionImportMapping FunctionImportName="usp_CMP_ESPECIALIDADInsert" FunctionName="ColegioModel.Store.usp_CMP_ESPECIALIDADInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_ESPECIALIDADInsert_Result">
+                <ScalarProperty Name="nespecialidad_id" ColumnName="nespecialidad_id" />
+                <ScalarProperty Name="cespecialidad_estado" ColumnName="cespecialidad_estado" />
+                <ScalarProperty Name="cespecialidad_nombre" ColumnName="cespecialidad_nombre" />
+                <ScalarProperty Name="vespecialidad_cod" ColumnName="vespecialidad_cod" />
+                <ScalarProperty Name="vespecialidad_tipo" ColumnName="vespecialidad_tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_ESPECIALIDADSelect" FunctionName="ColegioModel.Store.usp_CMP_ESPECIALIDADSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_ESPECIALIDADSelect_Result">
+                <ScalarProperty Name="nespecialidad_id" ColumnName="nespecialidad_id" />
+                <ScalarProperty Name="cespecialidad_estado" ColumnName="cespecialidad_estado" />
+                <ScalarProperty Name="cespecialidad_nombre" ColumnName="cespecialidad_nombre" />
+                <ScalarProperty Name="vespecialidad_cod" ColumnName="vespecialidad_cod" />
+                <ScalarProperty Name="vespecialidad_tipo" ColumnName="vespecialidad_tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_ESPECIALIDADUpdate" FunctionName="ColegioModel.Store.usp_CMP_ESPECIALIDADUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_ESPECIALIDADUpdate_Result">
+                <ScalarProperty Name="nespecialidad_id" ColumnName="nespecialidad_id" />
+                <ScalarProperty Name="cespecialidad_estado" ColumnName="cespecialidad_estado" />
+                <ScalarProperty Name="cespecialidad_nombre" ColumnName="cespecialidad_nombre" />
+                <ScalarProperty Name="vespecialidad_cod" ColumnName="vespecialidad_cod" />
+                <ScalarProperty Name="vespecialidad_tipo" ColumnName="vespecialidad_tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_INSTITUCIONEDUDelete" FunctionName="ColegioModel.Store.usp_CMP_INSTITUCIONEDUDelete" />
+          <FunctionImportMapping FunctionImportName="usp_CMP_INSTITUCIONEDUInsert" FunctionName="ColegioModel.Store.usp_CMP_INSTITUCIONEDUInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_INSTITUCIONEDUInsert_Result">
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="cinstitucionedu_nombre" ColumnName="cinstitucionedu_nombre" />
+                <ScalarProperty Name="cinstitucionedu_tipo" ColumnName="cinstitucionedu_tipo" />
+                <ScalarProperty Name="cinstitucionedu_estado" ColumnName="cinstitucionedu_estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_INSTITUCIONEDUSelect" FunctionName="ColegioModel.Store.usp_CMP_INSTITUCIONEDUSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_INSTITUCIONEDUSelect_Result">
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="cinstitucionedu_nombre" ColumnName="cinstitucionedu_nombre" />
+                <ScalarProperty Name="cinstitucionedu_tipo" ColumnName="cinstitucionedu_tipo" />
+                <ScalarProperty Name="cinstitucionedu_estado" ColumnName="cinstitucionedu_estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_INSTITUCIONEDUUpdate" FunctionName="ColegioModel.Store.usp_CMP_INSTITUCIONEDUUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_INSTITUCIONEDUUpdate_Result">
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="cinstitucionedu_nombre" ColumnName="cinstitucionedu_nombre" />
+                <ScalarProperty Name="cinstitucionedu_tipo" ColumnName="cinstitucionedu_tipo" />
+                <ScalarProperty Name="cinstitucionedu_estado" ColumnName="cinstitucionedu_estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_MEDICODelete" FunctionName="ColegioModel.Store.usp_CMP_MEDICODelete" />
+          <FunctionImportMapping FunctionImportName="usp_CMP_MEDICOESPDelete" FunctionName="ColegioModel.Store.usp_CMP_MEDICOESPDelete" />
+          <FunctionImportMapping FunctionImportName="usp_CMP_MEDICOESPInsert" FunctionName="ColegioModel.Store.usp_CMP_MEDICOESPInsert" />
+          <FunctionImportMapping FunctionImportName="usp_CMP_MEDICOESPSelect" FunctionName="ColegioModel.Store.usp_CMP_MEDICOESPSelect" />
+          <FunctionImportMapping FunctionImportName="usp_CMP_MEDICOESPUpdate" FunctionName="ColegioModel.Store.usp_CMP_MEDICOESPUpdate" />
+          <FunctionImportMapping FunctionImportName="usp_CMP_MEDICOInsert" FunctionName="ColegioModel.Store.usp_CMP_MEDICOInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_MEDICOInsert_Result">
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cmedico_nrodoc" ColumnName="cmedico_nrodoc" />
+                <ScalarProperty Name="cmedico_ncolegiatura" ColumnName="cmedico_ncolegiatura" />
+                <ScalarProperty Name="vmedico_a_paterno" ColumnName="vmedico_a_paterno" />
+                <ScalarProperty Name="vmedico_a_materno" ColumnName="vmedico_a_materno" />
+                <ScalarProperty Name="vmedico_nombres" ColumnName="vmedico_nombres" />
+                <ScalarProperty Name="cmedico_estado" ColumnName="cmedico_estado" />
+                <ScalarProperty Name="vmedico_titulo" ColumnName="vmedico_titulo" />
+                <ScalarProperty Name="vmedico_titulo_nro" ColumnName="vmedico_titulo_nro" />
+                <ScalarProperty Name="vmedico_correo" ColumnName="vmedico_correo" />
+                <ScalarProperty Name="vmedico_telefono" ColumnName="vmedico_telefono" />
+                <ScalarProperty Name="vmedico_direccion" ColumnName="vmedico_direccion" />
+                <ScalarProperty Name="ncregional_id" ColumnName="ncregional_id" />
+                <ScalarProperty Name="cmedico_sexo" ColumnName="cmedico_sexo" />
+                <ScalarProperty Name="cmedico_tipodoc" ColumnName="cmedico_tipodoc" />
+                <ScalarProperty Name="vmedico_celular" ColumnName="vmedico_celular" />
+                <ScalarProperty Name="dmedico_colegiatura" ColumnName="dmedico_colegiatura" />
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="dmedico_nacimiento" ColumnName="dmedico_nacimiento" />
+                <ScalarProperty Name="cmedico_recertificado" ColumnName="cmedico_recertificado" />
+                <ScalarProperty Name="cubigeo_cod" ColumnName="cubigeo_cod" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_MEDICOSelect" FunctionName="ColegioModel.Store.usp_CMP_MEDICOSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_MEDICOSelect_Result">
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cmedico_nrodoc" ColumnName="cmedico_nrodoc" />
+                <ScalarProperty Name="cmedico_ncolegiatura" ColumnName="cmedico_ncolegiatura" />
+                <ScalarProperty Name="vmedico_a_paterno" ColumnName="vmedico_a_paterno" />
+                <ScalarProperty Name="vmedico_a_materno" ColumnName="vmedico_a_materno" />
+                <ScalarProperty Name="vmedico_nombres" ColumnName="vmedico_nombres" />
+                <ScalarProperty Name="cmedico_estado" ColumnName="cmedico_estado" />
+                <ScalarProperty Name="vmedico_titulo" ColumnName="vmedico_titulo" />
+                <ScalarProperty Name="vmedico_titulo_nro" ColumnName="vmedico_titulo_nro" />
+                <ScalarProperty Name="vmedico_correo" ColumnName="vmedico_correo" />
+                <ScalarProperty Name="vmedico_telefono" ColumnName="vmedico_telefono" />
+                <ScalarProperty Name="vmedico_direccion" ColumnName="vmedico_direccion" />
+                <ScalarProperty Name="ncregional_id" ColumnName="ncregional_id" />
+                <ScalarProperty Name="cmedico_sexo" ColumnName="cmedico_sexo" />
+                <ScalarProperty Name="cmedico_tipodoc" ColumnName="cmedico_tipodoc" />
+                <ScalarProperty Name="vmedico_celular" ColumnName="vmedico_celular" />
+                <ScalarProperty Name="dmedico_colegiatura" ColumnName="dmedico_colegiatura" />
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="dmedico_nacimiento" ColumnName="dmedico_nacimiento" />
+                <ScalarProperty Name="cmedico_recertificado" ColumnName="cmedico_recertificado" />
+                <ScalarProperty Name="cubigeo_cod" ColumnName="cubigeo_cod" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_MEDICOUpdate" FunctionName="ColegioModel.Store.usp_CMP_MEDICOUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_MEDICOUpdate_Result">
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cmedico_nrodoc" ColumnName="cmedico_nrodoc" />
+                <ScalarProperty Name="cmedico_ncolegiatura" ColumnName="cmedico_ncolegiatura" />
+                <ScalarProperty Name="vmedico_a_paterno" ColumnName="vmedico_a_paterno" />
+                <ScalarProperty Name="vmedico_a_materno" ColumnName="vmedico_a_materno" />
+                <ScalarProperty Name="vmedico_nombres" ColumnName="vmedico_nombres" />
+                <ScalarProperty Name="cmedico_estado" ColumnName="cmedico_estado" />
+                <ScalarProperty Name="vmedico_titulo" ColumnName="vmedico_titulo" />
+                <ScalarProperty Name="vmedico_titulo_nro" ColumnName="vmedico_titulo_nro" />
+                <ScalarProperty Name="vmedico_correo" ColumnName="vmedico_correo" />
+                <ScalarProperty Name="vmedico_telefono" ColumnName="vmedico_telefono" />
+                <ScalarProperty Name="vmedico_direccion" ColumnName="vmedico_direccion" />
+                <ScalarProperty Name="ncregional_id" ColumnName="ncregional_id" />
+                <ScalarProperty Name="cmedico_sexo" ColumnName="cmedico_sexo" />
+                <ScalarProperty Name="cmedico_tipodoc" ColumnName="cmedico_tipodoc" />
+                <ScalarProperty Name="vmedico_celular" ColumnName="vmedico_celular" />
+                <ScalarProperty Name="dmedico_colegiatura" ColumnName="dmedico_colegiatura" />
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="dmedico_nacimiento" ColumnName="dmedico_nacimiento" />
+                <ScalarProperty Name="cmedico_recertificado" ColumnName="cmedico_recertificado" />
+                <ScalarProperty Name="cubigeo_cod" ColumnName="cubigeo_cod" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_PRESTADORADelete" FunctionName="ColegioModel.Store.usp_CMP_PRESTADORADelete" />
+          <FunctionImportMapping FunctionImportName="usp_CMP_PRESTADORAInsert" FunctionName="ColegioModel.Store.usp_CMP_PRESTADORAInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_PRESTADORAInsert_Result">
+                <ScalarProperty Name="nprestadora_id" ColumnName="nprestadora_id" />
+                <ScalarProperty Name="vprestadora_nom" ColumnName="vprestadora_nom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_PRESTADORASelect" FunctionName="ColegioModel.Store.usp_CMP_PRESTADORASelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_PRESTADORASelect_Result">
+                <ScalarProperty Name="nprestadora_id" ColumnName="nprestadora_id" />
+                <ScalarProperty Name="vprestadora_nom" ColumnName="vprestadora_nom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_PRESTADORAUpdate" FunctionName="ColegioModel.Store.usp_CMP_PRESTADORAUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_PRESTADORAUpdate_Result">
+                <ScalarProperty Name="nprestadora_id" ColumnName="nprestadora_id" />
+                <ScalarProperty Name="vprestadora_nom" ColumnName="vprestadora_nom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_UBIGEODelete" FunctionName="ColegioModel.Store.usp_CMP_UBIGEODelete" />
+          <FunctionImportMapping FunctionImportName="usp_CMP_UBIGEOInsert" FunctionName="ColegioModel.Store.usp_CMP_UBIGEOInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_UBIGEOInsert_Result">
+                <ScalarProperty Name="CUBIGEO_COD" ColumnName="CUBIGEO_COD" />
+                <ScalarProperty Name="VUBIGEO_DEPARTAMENTO" ColumnName="VUBIGEO_DEPARTAMENTO" />
+                <ScalarProperty Name="VUBIGEO_PROVINCIA" ColumnName="VUBIGEO_PROVINCIA" />
+                <ScalarProperty Name="VUBIGEO_DISTRITO" ColumnName="VUBIGEO_DISTRITO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_UBIGEOSelect" FunctionName="ColegioModel.Store.usp_CMP_UBIGEOSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_UBIGEOSelect_Result">
+                <ScalarProperty Name="CUBIGEO_COD" ColumnName="CUBIGEO_COD" />
+                <ScalarProperty Name="VUBIGEO_DEPARTAMENTO" ColumnName="VUBIGEO_DEPARTAMENTO" />
+                <ScalarProperty Name="VUBIGEO_PROVINCIA" ColumnName="VUBIGEO_PROVINCIA" />
+                <ScalarProperty Name="VUBIGEO_DISTRITO" ColumnName="VUBIGEO_DISTRITO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMP_UBIGEOUpdate" FunctionName="ColegioModel.Store.usp_CMP_UBIGEOUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_CMP_UBIGEOUpdate_Result">
+                <ScalarProperty Name="CUBIGEO_COD" ColumnName="CUBIGEO_COD" />
+                <ScalarProperty Name="VUBIGEO_DEPARTAMENTO" ColumnName="VUBIGEO_DEPARTAMENTO" />
+                <ScalarProperty Name="VUBIGEO_PROVINCIA" ColumnName="VUBIGEO_PROVINCIA" />
+                <ScalarProperty Name="VUBIGEO_DISTRITO" ColumnName="VUBIGEO_DISTRITO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Medicos_by_CRegionalID" FunctionName="ColegioModel.Store.usp_Medicos_by_CRegionalID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_Medicos_by_CRegionalID_Result">
+                <ScalarProperty Name="cmedico_nrodoc" ColumnName="cmedico_nrodoc" />
+                <ScalarProperty Name="cmedico_ncolegiatura" ColumnName="cmedico_ncolegiatura" />
+                <ScalarProperty Name="vmedico_a_paterno" ColumnName="vmedico_a_paterno" />
+                <ScalarProperty Name="vmedico_a_materno" ColumnName="vmedico_a_materno" />
+                <ScalarProperty Name="vmedico_nombres" ColumnName="vmedico_nombres" />
+                <ScalarProperty Name="vmedico_correo" ColumnName="vmedico_correo" />
+                <ScalarProperty Name="vmedico_telefono" ColumnName="vmedico_telefono" />
+                <ScalarProperty Name="vmedico_celular" ColumnName="vmedico_celular" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Pasantia_By_MedicoID" FunctionName="ColegioModel.Store.usp_Pasantia_By_MedicoID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_Pasantia_By_MedicoID_Result">
+                <ScalarProperty Name="vpasantia_dsc" ColumnName="vpasantia_dsc" />
+                <ScalarProperty Name="dpasantia_inicio" ColumnName="dpasantia_inicio" />
+                <ScalarProperty Name="dpasantia_fin" ColumnName="dpasantia_fin" />
+                <ScalarProperty Name="nprestadora_id" ColumnName="nprestadora_id" />
+                <ScalarProperty Name="vprestadora_nom" ColumnName="vprestadora_nom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Pasantia_By_PrestadoraID" FunctionName="ColegioModel.Store.usp_Pasantia_By_PrestadoraID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_Pasantia_By_PrestadoraID_Result">
+                <ScalarProperty Name="vpasantia_dsc" ColumnName="vpasantia_dsc" />
+                <ScalarProperty Name="dpasantia_inicio" ColumnName="dpasantia_inicio" />
+                <ScalarProperty Name="dpasantia_fin" ColumnName="dpasantia_fin" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PostGrado_By_MedicoID" FunctionName="ColegioModel.Store.usp_PostGrado_By_MedicoID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_PostGrado_By_MedicoID_Result">
+                <ScalarProperty Name="dpostgrado_fecha" ColumnName="dpostgrado_fecha" />
+                <ScalarProperty Name="vpostgrado_nombre" ColumnName="vpostgrado_nombre" />
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="cinstitucionedu_nombre" ColumnName="cinstitucionedu_nombre" />
+                <ScalarProperty Name="cpostgrado_tipo" ColumnName="cpostgrado_tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_List_Medicos" FunctionName="ColegioModel.Store.usp_List_Medicos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_List_Medicos_Result">
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cmedico_ncolegiatura" ColumnName="cmedico_ncolegiatura" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Medico_By_Id" FunctionName="ColegioModel.Store.usp_Medico_By_Id">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_Medico_By_Id_Result">
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cmedico_ncolegiatura" ColumnName="cmedico_ncolegiatura" />
+                <ScalarProperty Name="cmedico_nrodoc" ColumnName="cmedico_nrodoc" />
+                <ScalarProperty Name="vmedico_nombres" ColumnName="vmedico_nombres" />
+                <ScalarProperty Name="vmedico_a_paterno" ColumnName="vmedico_a_paterno" />
+                <ScalarProperty Name="vmedico_a_materno" ColumnName="vmedico_a_materno" />
+                <ScalarProperty Name="vmedico_celular" ColumnName="vmedico_celular" />
+                <ScalarProperty Name="vmedico_telefono" ColumnName="vmedico_telefono" />
+                <ScalarProperty Name="dmedico_nacimiento" ColumnName="dmedico_nacimiento" />
+                <ScalarProperty Name="vmedico_correo" ColumnName="vmedico_correo" />
+                <ScalarProperty Name="cinstitucionedu_nombre" ColumnName="cinstitucionedu_nombre" />
+                <ScalarProperty Name="vcregional_nombre" ColumnName="vcregional_nombre" />
+                <ScalarProperty Name="vmedico_direccion" ColumnName="vmedico_direccion" />
+                <ScalarProperty Name="VUBIGEO_DEPARTAMENTO" ColumnName="VUBIGEO_DEPARTAMENTO" />
+                <ScalarProperty Name="VUBIGEO_PROVINCIA" ColumnName="VUBIGEO_PROVINCIA" />
+                <ScalarProperty Name="VUBIGEO_DISTRITO" ColumnName="VUBIGEO_DISTRITO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Especialidad_By_MedicoID" FunctionName="ColegioModel.Store.usp_Especialidad_By_MedicoID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_Especialidad_By_MedicoID_Result">
+                <ScalarProperty Name="VMEDICOESP_COD" ColumnName="VMEDICOESP_COD" />
+                <ScalarProperty Name="NESPECIALIDAD_ID" ColumnName="NESPECIALIDAD_ID" />
+                <ScalarProperty Name="cespecialidad_nombre" ColumnName="cespecialidad_nombre" />
+                <ScalarProperty Name="DMEDICOESP_EMISION" ColumnName="DMEDICOESP_EMISION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Medico_By_NroCol" FunctionName="ColegioModel.Store.usp_Medico_By_NroCol">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_Medico_By_NroCol_Result">
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cmedico_ncolegiatura" ColumnName="cmedico_ncolegiatura" />
+                <ScalarProperty Name="cmedico_nrodoc" ColumnName="cmedico_nrodoc" />
+                <ScalarProperty Name="vmedico_nombres" ColumnName="vmedico_nombres" />
+                <ScalarProperty Name="vmedico_a_paterno" ColumnName="vmedico_a_paterno" />
+                <ScalarProperty Name="vmedico_a_materno" ColumnName="vmedico_a_materno" />
+                <ScalarProperty Name="vmedico_celular" ColumnName="vmedico_celular" />
+                <ScalarProperty Name="vmedico_telefono" ColumnName="vmedico_telefono" />
+                <ScalarProperty Name="dmedico_nacimiento" ColumnName="dmedico_nacimiento" />
+                <ScalarProperty Name="vmedico_correo" ColumnName="vmedico_correo" />
+                <ScalarProperty Name="cinstitucionedu_nombre" ColumnName="cinstitucionedu_nombre" />
+                <ScalarProperty Name="vcregional_nombre" ColumnName="vcregional_nombre" />
+                <ScalarProperty Name="vmedico_direccion" ColumnName="vmedico_direccion" />
+                <ScalarProperty Name="VUBIGEO_DEPARTAMENTO" ColumnName="VUBIGEO_DEPARTAMENTO" />
+                <ScalarProperty Name="VUBIGEO_PROVINCIA" ColumnName="VUBIGEO_PROVINCIA" />
+                <ScalarProperty Name="VUBIGEO_DISTRITO" ColumnName="VUBIGEO_DISTRITO" />
+                <ScalarProperty Name="dmedico_colegiatura" ColumnName="dmedico_colegiatura" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_List_CRegional" FunctionName="ColegioModel.Store.usp_List_CRegional">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_List_CRegional_Result">
+                <ScalarProperty Name="ncregional_id" ColumnName="ncregional_id" />
+                <ScalarProperty Name="vcregional_nombre" ColumnName="vcregional_nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Medico_By_Paterno" FunctionName="ColegioModel.Store.usp_Medico_By_Paterno">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_Medico_By_Paterno_Result">
+                <ScalarProperty Name="cmedico_id" ColumnName="cmedico_id" />
+                <ScalarProperty Name="cmedico_ncolegiatura" ColumnName="cmedico_ncolegiatura" />
+                <ScalarProperty Name="cmedico_nrodoc" ColumnName="cmedico_nrodoc" />
+                <ScalarProperty Name="vmedico_nombres" ColumnName="vmedico_nombres" />
+                <ScalarProperty Name="vmedico_a_paterno" ColumnName="vmedico_a_paterno" />
+                <ScalarProperty Name="vmedico_a_materno" ColumnName="vmedico_a_materno" />
+                <ScalarProperty Name="vmedico_celular" ColumnName="vmedico_celular" />
+                <ScalarProperty Name="vmedico_telefono" ColumnName="vmedico_telefono" />
+                <ScalarProperty Name="dmedico_nacimiento" ColumnName="dmedico_nacimiento" />
+                <ScalarProperty Name="vmedico_correo" ColumnName="vmedico_correo" />
+                <ScalarProperty Name="cinstitucionedu_nombre" ColumnName="cinstitucionedu_nombre" />
+                <ScalarProperty Name="vcregional_nombre" ColumnName="vcregional_nombre" />
+                <ScalarProperty Name="vmedico_direccion" ColumnName="vmedico_direccion" />
+                <ScalarProperty Name="VUBIGEO_DEPARTAMENTO" ColumnName="VUBIGEO_DEPARTAMENTO" />
+                <ScalarProperty Name="VUBIGEO_PROVINCIA" ColumnName="VUBIGEO_PROVINCIA" />
+                <ScalarProperty Name="VUBIGEO_DISTRITO" ColumnName="VUBIGEO_DISTRITO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_List_MedicosInstEdu" FunctionName="ColegioModel.Store.usp_List_MedicosInstEdu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ColegioModel.usp_List_MedicosInstEdu_Result">
+                <ScalarProperty Name="ninstitucionedu_id" ColumnName="ninstitucionedu_id" />
+                <ScalarProperty Name="cinstitucionedu_nombre" ColumnName="cinstitucionedu_nombre" />
+                <ScalarProperty Name="contador" ColumnName="contador" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
